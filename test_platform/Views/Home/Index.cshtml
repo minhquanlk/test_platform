@@ -1,0 +1,53 @@
+﻿@model test_platform.Models.Auth.UserInfo
+
+@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Điền form</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+    <div class="p-2 mt-5">
+        <form class="" asp-action="Index">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="auth-form-group-custom mb-4">
+                <i class="ri-user-2-line auti-custom-input-icon"></i>
+                <label asp-for="FullName">FullName</label>
+                <input asp-for="FullName" class="form-control" placeholder="Họ và tên">
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+
+            <div class="auth-form-group-custom mb-4">
+                <i class="ri-mail-line auti-custom-input-icon"></i>
+                <label asp-for="Email">Email</label>
+                <input asp-for="Email" class="form-control" placeholder="Enter email">
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+
+            <div class="auth-form-group-custom mb-4">
+                <i class="ri-lock-2-line auti-custom-input-icon"></i>
+                <label asp-for="PhoneNumber">Số điện thoại</label>
+                <input asp-for="PhoneNumber" type="text" class="form-control" placeholder="Số điện thoại">
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+
+            <div class="auth-form-group-custom mb-4">
+                <i class="ri-lock-2-line auti-custom-input-icon"></i>
+                <label asp-for="BirthDate">Ngày sinh</label>
+                <input asp-for="BirthDate" type="datetime" class="form-control" placeholder="Ngày sinh">
+                <span asp-validation-for="BirthDate" class="text-danger"></span>
+            </div>
+
+
+            <div class="text-center">
+                <button class="btn btn-primary w-md waves-effect waves-light" type="submit">Register</button>
+            </div>
+
+            <div class="mt-4 text-center">
+                <p class="mb-0">Nếu bạn đã có tài khoản  <a href=@Url.Action("Index", "Auth") class="text-primary">Đăng nhập</a></p>
+            </div>
+        </form>
+    </div>
+</div>

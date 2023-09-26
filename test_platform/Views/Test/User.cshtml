@@ -1,0 +1,47 @@
+﻿@model test_platform.Models.TestView
+
+@{
+    ViewData["Title"] = "Test";
+    Layout = "~/Views/Shared/_LayoutSigned.cshtml";
+    
+}
+
+<div class="text-center">
+    <h1 class="display-4">TEST CENTER</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <table class="table mt-4">
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Title
+            </th>
+            <th>
+                Description
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model.quizs)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                
+                <td>
+                    @Html.ActionLink("Join", "Test", new {  id=item.Id  }) |
+
+                  
+                </td>
+            </tr>
+        }
+    </table>
+</div>
