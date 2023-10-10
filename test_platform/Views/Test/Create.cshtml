@@ -1,0 +1,39 @@
+﻿@model test_platform.Models.Quiz.QuizInfo
+
+@{
+    ViewData["Title"] = "Admin";
+    Layout = "~/Views/Shared/_LayoutSigned.cshtml";
+
+}
+
+<div class="text-center">
+    <h1 class="display-4">Điền form</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+    <div class="p-2 mt-5">
+        <form class="" asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="auth-form-group-custom mb-4">
+                <i class="ri-user-2-line auti-custom-input-icon"></i>
+                <label asp-for="Title">Title</label>
+                <input asp-for="Title" class="form-control" placeholder="Title">
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+
+            <div class="auth-form-group-custom mb-4">
+                <i class="ri-mail-line auti-custom-input-icon"></i>
+                <label asp-for="Description">Email</label>
+                <input asp-for="Description" class="form-control" placeholder="Thông tin">
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+
+
+            
+
+
+           
+
+            
+        </form>
+    </div>
+</div>

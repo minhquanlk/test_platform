@@ -1,13 +1,13 @@
-﻿@model test_platform.Models.TestView
+﻿@model IEnumerable<test_platform.Models.Quiz.QuizInfo>
 
 @{
-    ViewData["Title"] = "Test";
+    ViewData["Title"] = "Admin";
     Layout = "~/Views/Shared/_LayoutSigned.cshtml";
     
 }
 
 <div class="text-center">
-    <h1 class="display-4">TEST CENTER</h1>
+    <h1 class="display-4">ADMIN CENTER</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
     <table class="table mt-4">
         <tr>
@@ -23,7 +23,7 @@
             <th></th>
         </tr>
 
-        @foreach (var item in Model.quizs)
+        @foreach (var item in Model)
         {
             <tr>
                 <td>
@@ -35,28 +35,22 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Description)
                 </td>
-                
+
                 <td>
-                    @Html.ActionLink("Edit", "Test", new {  id=item.Id  }) |
-                    @Html.ActionLink("Analyst", "Test", new {  id=item.Id  }) 
-                  
+                    @Html.ActionLink("More", "Test", new {  id=item.Id  })
                 </td>
             </tr>
         }
         <tr>
             <td>
-          
             </td>
             <td>
-          
             </td>
             <td>
-          
             </td>
 
             <td>
-                @Html.ActionLink("Create", "Test")
-
+                @Html.ActionLink("Create", "Create")
             </td>
         </tr>
     </table>

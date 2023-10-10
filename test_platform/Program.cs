@@ -1,10 +1,4 @@
-﻿using FireSharp.Interfaces;
-using Google.Api;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using System;
-using test_platform.Models.Auth;
-using test_platform.Services;
+﻿using test_platform.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +15,7 @@ builder.Services.AddSession(options =>
 // Đăng ký FirebaseClientManager với DI container
 builder.Services.AddSingleton(new DBService());
 builder.Services.AddSingleton<IUserContext, UserContext>();
+builder.Services.AddSingleton<IQuizContext, QuizContext>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

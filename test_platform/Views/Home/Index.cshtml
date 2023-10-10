@@ -4,7 +4,585 @@
     ViewData["Title"] = "Home";
 }
 
-<div class="text-center">
+<!-- Fullpage content -->
+<div class="ln-fullpage" data-navigation="true">
+    <!-- Section - Home -->
+    <section class="ln-section d-flex flex-column home-title" data-anchor="home" data-tooltip="Home">
+                    
+        <div class="overlay overlay-advanced">
+            <div class="overlay-inner bg-image-holder bg-cover">
+            <img src="~/assets/images/main-background.png" alt="background">
+            </div>
+        </div>
+        <img class="title-home" src="~/assets/images/main-titile.png" alt="">
+
+        <img class="title-home apply-btn apply-btn-1 animated" data-animation="fadeInUp" data-animation-delay="300" src="~/assets/images/main-button-1.png" alt="">
+        <img class="title-home apply-btn apply-btn-2 animated" data-animation="fadeInUp" data-animation-delay="300" id="apply-btn-2" src="~/assets/images/main-button-2.png" alt="">
+        <p class="timeline text-center" data-animation="fadeInUp" data-animation-delay="300">15/10 - 03/11/2023</p>
+        <img class="man-home animated" data-animation="rotateIn" data-animation-delay="100" src="~/assets/images/man-home.png" alt="">
+        <img class="girl-home animated" data-animation="rotateIn" data-animation-delay="100" src="~/assets/images/girl-home.png" alt="">
+    </section>
+    
+    <!-- Section - Our mission -->
+    <section class="ln-section d-xl-flex flex-column justify-content-center" data-anchor="our-mission" data-tooltip="Our mission" data-ui="dark" data-navbar="navbar-light">
+        <div class="overlay overlay-advanced">
+            <div class="overlay-inner bg-light bg-cover">
+            </div>
+        </div>
+        <div class="overlay overlay-advanced">
+            <div class="overlay-inner bg-image-holder bg-cover">
+                <img src="~/assets/images/bottle-background.png" alt="background">
+            </div>
+        </div>
+        
+        <p class="title-2 text-center" data-animation="fadeInUp" data-animation-delay="300">MESSAGE FROM OUR TALENTS</p>
+        <div class="row row-cols-6 justify-content-center message-list" id="message-list"  data-animation="fadeInUp" data-animation-delay="300">
+            <div class="message d-flex flex-column align-items-center ml-3 mr-3" onclick="toggleVisibility(0)"> 
+                <img class="person-message person-1" src="~/assets/images/girl-home.png" alt="">
+                <div class="title-group dropup text-center">
+                    <p class="title-message">Online Appication 1</p>
+                    <img class="title-border" src="~/assets/images/text-border-orange.png" alt="">
+                </div>
+            </div>
+            <div class="message d-flex flex-column align-items-center ml-3 mr-3" onclick="toggleVisibility(1)">
+                <img class="person-message person-1" src="~/assets/images/girl-home.png" alt="">
+                <div class="title-group dropup text-center">
+                    <p class="title-message">Online Appication 2</p>
+                    <img class="title-border" src="~/assets/images/text-border-orange.png" alt="">
+                </div>
+            </div>
+            <div class="message d-flex flex-column align-items-center ml-3 mr-3" onclick="toggleVisibility(2)">
+                <img class="person-message person-1" src="~/assets/images/girl-home.png" alt="">
+                <div class="title-group dropup text-center">
+                    <p class="title-message">Online Appication 3</p>
+                    <img class="title-border" src="~/assets/images/text-border-orange.png" alt="">
+                </div>
+            </div>
+            <div class="message d-flex flex-column align-items-center ml-3 mr-3" onclick="toggleVisibility(3)">
+                <img class="person-message person-1" src="~/assets/images/girl-home.png" alt="">
+                <div class="title-group dropup text-center">
+                    <p class="title-message">Online Appication 4</p>
+                    <img class="title-border" src="~/assets/images/text-border-orange.png" alt="">
+                </div>
+            </div>
+            <div class="message d-flex flex-column align-items-center ml-3 mr-3" onclick="toggleVisibility(4)">
+                <img class="person-message person-1" src="~/assets/images/girl-home.png" alt="">
+                <div class="title-group dropup text-center">
+                    <p class="title-message">Online Appication 5</p>
+                    <img class="title-border" src="~/assets/images/text-border-orange.png" alt="">
+                </div>
+            </div>
+        
+        </div>
+        <div class="row justify-content-center message-focus align-items-end" id="message-focus">
+            <div class="col-4 message-focus-border dropup text-center">
+                <p class="title-message">Online Appication 1</p>
+                <img class="title-border" src="~/assets/images/element-focus.png" alt="">
+            </div>
+            <div class="col-7 message-focus-text-border dropup text-center">
+                <p class="title-message">Online Appication 1</p>
+                <img class="title-border" src="~/assets/images/message.png" alt="">
+            </div>
+        </div>
+    </section>
+
+    <!-- Section - What we do -->
+    <section class="ln-section d-xl-flex" data-anchor="what-we-do" data-tooltip="What we do">
+        <div class="overlay overlay-advanced">
+            <div class="overlay-inner bg-image-holder bg-cover">
+                <img src="~/assets/images/recruitment.jpg" alt="background">
+            </div>
+            <div class="overlay-inner opacity-95" data-gradient-bg="[['#195cb5','#ffb56e'],['#21D4FD','#195cb5'],['#ffb56e','#013b7a']]"></div>
+        </div>
+        <div class="container align-self-center text-white">
+            <div class="row mb-8 text-center">
+                <div class="col-12 col-lg-9 mx-lg-auto">
+                    <h2 class="h1 mb-4 animated" data-animation="fadeInUp"><b>Key accountabilities</b></h2>
+                    <p class="mb-0 animated" data-animation="fadeInUp" data-animation-delay="400">When joining Masan R&D Talents Program, candidates will undergo training and be responsible for the following job activities:</p>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="col-10 col-md-6 mb-5">
+                    <div class="feature-block text-center">
+                        <div class="feature-icon style-2 text-primary mx-auto">
+                            <div>
+                                <i class="ti-timer"></i>
+                            </div>
+                        </div>
+                        <h3 class="h4 heading-uppercase mb-2"><b>50%</b></h3>
+                        <p>
+                            Plan and implement experiments according to the guidance of direct supervisors regarding research and product development at the Lab/Pilot/Line scale.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-10 col-md-6 mb-5">
+                    <div class="feature-block text-center">
+                        <div class="feature-icon style-2 text-primary mx-auto">
+                            <div>
+                                <i class="ti-brush-alt"></i>
+                            </div>
+                        </div>
+                        <h3 class="h4 heading-uppercase mb-2"><b>20%</b></h3>
+                        <p>
+                            Execute the technology transfer of new products to the factory and complete the transfer documentation (HDSX, BOM, standards, test records, etc.).
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-10 col-md-6 mb-5 mb-md-0">
+                    <div class="feature-block text-center">
+                        <div class="feature-icon style-2 text-primary mx-auto">
+                            <div>
+                                <i class="ti-book"></i>
+                            </div>
+                        </div>
+                        <h3 class="h4 heading-uppercase mb-2"><b>20%</b></h3>
+                        <p>Coordinate with functional teams (RSS, PKG, Micro, Processing, Consumer Technical Insight, Technical Data Management, etc.) to complete the project as required.</p>
+                    </div>
+                </div>
+
+                <div class="col-10 col-md-6">
+                    <div class="feature-block text-center">
+                        <div class="feature-icon style-2 text-primary mx-auto">
+                            <div>
+                                <i class="ti-layers"></i>
+                            </div>
+                        </div>
+                        <h3 class="h4 heading-uppercase mb-2"><b>10%</b></h3>
+                        <p>Propose solutions for dealing with issues related to existing raw material sources.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Section - Our solutions -->
+    <section class="ln-section d-xl-flex" data-anchor="our-solutions" data-tooltip="Our solutions">
+        <div class="overlay overlay-advanced">
+            <div class="overlay-inner bg-image-holder bg-cover">
+                <img src="~/assets/images/product.jpg" alt="background">
+            </div>
+            <div class="overlay-inner opacity-95" data-gradient-bg="[['#195cb5','#ffb56e'],['#21D4FD','#195cb5'],['#ffb56e','#013b7a']]"></div>
+        </div>
+        <div class="container align-self-center text-center text-white">
+            <div class="row">
+                <div class="col-12 col-lg-9 mx-lg-auto">
+                    <h2 class="h1 mb-4 animated" data-animation="fadeInUp"><b>Criteria</b></h2>
+                    </div>
+            </div>
+            <img class="criteria-pic" src="~/assets/images/Criteria.png" alt="">
+        </div>
+    </section>
+
+
+    <!-- Section - Our work -->
+    <section class="ln-section d-xl-flex" data-anchor="our-work" data-tooltip="Our work">
+        <div class="container align-self-center text-white text-center">
+            <div class="row mb-8">
+                <div class="col-12 col-lg-9 mx-lg-auto">
+                    <h2 class="mb-4 animated" data-animation="fadeInUp"><b>Program Process</b></h2>
+                   
+                </div>
+            </div>
+            <div class="slider dots-light text-left animated" data-animation="fadeInUp" data-animation-delay="300" data-slick='{"dots": true}'>
+
+                <div>
+                    <div class="portfolio-item mb-8">
+                        <div class="row">
+                            <div class="col-12 col-lg-7 mb-4 mb-lg-0">
+                                <div class="item-media">
+                                    <a href="assets/images/portfolio/project-6.jpg" class="mfp-image">
+                                        <div class="media-container">
+                                            <div class="bg-image-holder bg-cover">
+                                                <img src="assets/images/portfolio/project-6-min.jpg" alt="">
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-4">
+                                <div class="pt-lg-8">
+                                    <div class="divider divider-alt bg-white mt-0 mb-8 d-none d-lg-block"></div>
+                                    <h4 class="h3"><b>Form Application</b></h4>
+                                    <p class="text-italic">Candidates register for the program and submit their CVs. Suitable candidates will receive an email inviting them to participate in the program's test round.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="portfolio-item mb-8">
+                        <div class="row">
+                            <div class="col-12 col-lg-7 mb-4 mb-lg-0">
+                                <div class="item-media">
+                                    <a href="assets/images/portfolio/project-1.jpg" class="mfp-image">
+                                        <div class="media-container">
+                                            <div class="bg-image-holder bg-cover">
+                                                <img src="assets/images/portfolio/project-1-min.jpg" alt="">
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-4">
+                                <div class="pt-lg-8">
+                                    <div class="divider divider-alt bg-white mt-0 mb-8 d-none d-lg-block"></div>
+                                    <h4 class="h3"><b>Online Test</b></h4>
+                                    <p class="text-italic">
+                                        Candidates complete the personal screening test and answer questions, assessing their preferences in the following four areas:
+                                    </p>
+                                    <ul class="animated" data-animation="fadeInUp" data-animation-delay="150">
+                                        <li> Curiosity and eagerness to learn new things.</li>
+                                        <li>  Non-verbal thinking / Logic - Abstract / Logical Reasoning.</li>
+                                        <li>  Critical thinking skills.</li>
+                                        <li>  Problem-solving ability in work-related simulated situations - Simulation SJTs.</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="portfolio-item mb-8">
+                        <div class="row">
+                            <div class="col-12 col-lg-7 mb-4 mb-lg-0">
+                                <div class="item-media">
+                                    <a href="assets/images/portfolio/project-2.jpg" class="mfp-image">
+                                        <div class="media-container">
+                                            <div class="bg-image-holder bg-cover">
+                                                <img src="assets/images/portfolio/project-2-min.jpg" alt="">
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-4">
+                                <div class="pt-lg-8">
+                                    <div class="divider divider-alt bg-white mt-0 mb-8 d-none d-lg-block"></div>
+                                    <h4 class="h3"><b>Innovation Day</b></h4>
+                                    <p class="text-italic"><b>TOP 80</b><br>The top 80 candidates will be divided into 16 teams selected from Round 2 to participate in the Innovation Day (Group challenge). Here, the teams will be assigned topics to work on one practical scientific research idea. The teams will be guided by a panel of judges and advisors, including Associate R&D Directors and R&D Sr. Managers at Masan. The competition will span 3 weeks for the teams to conduct product research at the R&D office and Lab. Teams that are not present in Ho Chi Minh City will participate online.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="portfolio-item mb-8">
+                        <div class="row">
+                            <div class="col-12 col-lg-7 mb-4 mb-lg-0">
+                                <div class="item-media">
+                                    <a href="assets/images/portfolio/project-3.jpg" class="mfp-image">
+                                        <div class="media-container">
+                                            <div class="bg-image-holder bg-cover">
+                                                <img src="assets/images/portfolio/project-3-min.jpg" alt="">
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-4">
+                                <div class="pt-lg-8">
+                                    <div class="divider divider-alt bg-white mt-0 mb-8 d-none d-lg-block"></div>
+                                    <h4 class="h3">
+                                        <b>
+                                            Final Battle - Part 1:
+                                            Present the product research project:
+                                        </b>
+                                    </h4>
+                                    <p class="text-italic">
+                                        The 16 teams will go through a presentation session of their researched ideas, observations, and evaluations of the research samples with the judging panel and advisors from Masan R&D.
+                                        <br><br> The Innovation Day prizes structure is as shown in the picture.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="portfolio-item">
+                        <div class="row">
+                            <div class="col-12 col-lg-7 mb-4 mb-lg-0">
+                                <div class="item-media">
+                                    <a href="assets/images/portfolio/project-4.jpg" class="mfp-image">
+                                        <div class="media-container">
+                                            <div class="bg-image-holder bg-cover">
+                                                <img src="assets/images/portfolio/project-4-min.jpg" alt="">
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-4">
+                                <div class="pt-lg-8">
+                                    <div class="divider divider-alt bg-white mt-0 mb-8 d-none d-lg-block"></div>
+                                    <h4 class="h3">
+                                        <b>
+                                            Final Battle - Part 2:
+                                            Personal Interview
+                                        </b>
+                                    </h4>
+                                    <p class="text-italic"><b>TOP 30</b><br>The top 30 outstanding individual candidates selected from the Innovation Day will participate in the Final Battle, where they will answer personal interview questions from the judging panel, including the Masan Consumer Holdings CEO and Associate R&D Directors, R&D Sr. Managers/Managers. The questions will revolve around Masan R&D qualities to determine the overall top 15 candidates.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div>
+                    <div class="portfolio-item">
+                        <div class="row">
+                            <div class="col-12 col-lg-7 mb-4 mb-lg-0">
+                                <div class="item-media">
+                                    <a href="assets/images/portfolio/project-4.jpg" class="mfp-image">
+                                        <div class="media-container">
+                                            <div class="bg-image-holder bg-cover">
+                                                <img src="assets/images/portfolio/project-4-min.jpg" alt="">
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-12 col-lg-4">
+                                <div class="pt-lg-8">
+                                    <div class="divider divider-alt bg-white mt-0 mb-8 d-none d-lg-block"></div>
+                                    <h4 class="h3">
+                                        <b>
+                                            Final Interview
+                                        </b>
+                                    </h4>
+                                    <p class="text-italic"><b>TOP 15</b><br>The top 15 candidates selected in the Final Battle will undergo interviews with the R&D Department and HRBP to determine the department that aligns with their career goals. 
+                                        <br><br> Candidates who have not yet graduated may retain their recruitment rights until they meet the requirements for full-time employment, except for the Problem Solving Test, which has a 12-month expiration.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section - Contact -->
+    <section class="ln-section d-xl-flex" data-anchor="contact" data-tooltip="Contact">
+        <div class="overlay overlay-advanced">
+            <div class="overlay-inner bg-image-holder bg-cover">
+                <img src="~/assets/images/contact.jpg" alt="background">
+            </div>
+            <div class="overlay-inner opacity-90" data-gradient-bg="[['#195cb5','#ffb56e'],['#21D4FD','#195cb5'],['#ffb56e','#013b7a']]"></div>
+        </div>
+        <div class="banner-container">
+        <img class="banner-end" src="~/assets/images/banner-end.jpg" alt="">
+        </div>
+        <div class="container align-self-center text-white end-section">
+            
+            <div class="row mb-7">
+                <div class="col-12 col-xl-6">
+                    <h2 class="mb-4 animated" data-animation="fadeInUp">Contact Us</h2>
+                    <p class="animated" data-animation="fadeInUp" data-animation-delay="150">Want to say hello? Want to know more about us? Give us a call or drop us an email and we will get back to you as soon as we can.</p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-lg-5 mb-8 mb-lg-0">
+                    <div class="row">
+
+                        <div class="col-12 col-md-4 col-lg-6 mb-8 mb-md-0 mb-lg-5 animated" data-animation="fadeInUp" data-animation-delay="150">
+                            <div class="icon-5x mb-4">
+                                <i class="ti-mobile"></i>
+                            </div>
+                            <p class="mb-0">(0091) 1111 1234567<br /> (084) 2222 1234567</p>
+                        </div>
+
+                        <div class="col-12 col-md-4 col-lg-6 mb-8 mb-md-0 mb-lg-5 animated" data-animation="fadeInUp" data-animation-delay="150">
+                            <div class="icon-5x mb-4">
+                                <i class="ti-location-pin"></i>
+                            </div>
+                            <p class="mb-0">69 Halsey St, New York, Ny 10002,<br /> United States</p>
+                        </div>
+
+                        <div class="col-12 col-md-4 col-lg-6 animated" data-animation="fadeInUp" data-animation-delay="150">
+                            <div class="icon-5x mb-4">
+                                <i class="ti-email"></i>
+                            </div>
+                            <p class="mb-0">
+                                <a href="mailto:support@example.com" class="text-white">support@example.com</a><br />
+                                <a href="mailto:hello@example.com" class="text-white">hello@example.com</a>
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-12 col-lg-6 offset-lg-1 animated" data-animation="fadeInUp" data-animation-delay="150">
+                    <div class="contact-form">
+                        <form class="mb-0" id="cf" name="cf" action="include/sendemail.php" method="post" autocomplete="off">
+                            <div class="form-row">
+
+                                <div class="col-12 col-md-6">
+                                    <div class="form-group">
+                                        <input type="text" id="cf-name" name="cf-name" placeholder="Enter your name" class="form-control required">
+                                    </div>
+                                </div>
+
+                                <div class="col-12 col-md-6">
+                                    <div class="form-group">
+                                        <input type="email" id="cf-email" name="cf-email" placeholder="Enter your email address" class="form-control required">
+                                    </div>
+                                </div>
+
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <input type="text" id="cf-subject" name="cf-subject" placeholder="Subject (Optional)" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="col-12 mb-4">
+                                    <div class="form-group">
+                                        <textarea name="cf-message" id="cf-message" placeholder="Here goes your message" class="form-control required" rows="7"></textarea>
+                                    </div>
+                                </div>
+
+                                <div class="col-12 d-none">
+                                    <input type="text" id="cf-botcheck" name="cf-botcheck" value="">
+                                </div>
+
+                                <input type="hidden" name="prefix" value="cf-">
+
+                                <div class="col-12">
+                                    <button class="btn btn-soft-white" type="submit" id="cf-submit" name="cf-submit">Send Message</button>
+                                </div>
+
+                            </div>
+                        </form>
+                        <div class="contact-form-result"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+            </div>
+    <div class="website-slider-item" id="application-form">
+
+        <section class="min-vh-100 d-flex">
+            <div class="container align-self-center text-white text-center">
+                <div class="row">
+                    <div class="col-12 col-lg-9 mx-lg-auto">
+                        <h2 class="h1 mb-4 animated" data-animation="fadeInUp">Contact Us</h2>
+                        <div class="divider bg-white mx-auto animated" data-animation="fadeInUp" data-animation-delay="200"></div>
+                        <p class="animated mb-8" data-animation="fadeInUp" data-animation-delay="400">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                        <div class="contact-form text-left animated" data-animation="fadeInUp" data-animation-delay="600">
+                            <form class="mb-0" id="cf" name="cf" action="include/sendemail.php" method="post" autocomplete="off">
+                                <div class="form-row">
+
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group">
+                                            <input type="text" id="cf-name" name="cf-name" placeholder="Enter your name" class="form-control form-control-soft-light required">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 col-md-6">
+                                        <div class="form-group">
+                                            <input type="email" id="cf-email" name="cf-email" placeholder="Enter your email address" class="form-control form-control-soft-light required">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12">
+                                        <div class="form-group">
+                                            <input type="text" id="cf-subject" name="cf-subject" placeholder="Subject (Optional)" class="form-control form-control-soft-light">
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 mb-4">
+                                        <div class="form-group">
+                                            <textarea name="cf-message" id="cf-message" placeholder="Here goes your message" class="form-control form-control-soft-light required" rows="7"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-12 d-none">
+                                        <input type="text" id="cf-botcheck" name="cf-botcheck" value="">
+                                    </div>
+
+                                    <input type="hidden" name="prefix" value="cf-">
+
+                                    <div class="col-12 text-center">
+                                        <button class="btn btn-soft-white" type="submit" id="cf-submit" name="cf-submit">Send Message</button>
+                                    </div>
+
+                                </div>
+                            </form>
+                            <div class="contact-form-result text-center"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+            
+</div>
+<script>
+    const btn_2 = document.getElementById('apply-btn-2');
+
+    var btnHidden = false;
+    setInterval(function () {
+
+        if (btnHidden === false) {
+            btn_2.style.display = "none"; // Sử dụng "=" thay vì "()" để thiết lập kiểu hiển thị "none"
+            btnHidden = true;
+        }
+        else {
+            btn_2.classList.remove('animated');
+            btn_2.style.display = "block";
+            btnHidden = false;
+        }
+    }, 800);
+
+    var messageList = document.querySelectorAll('.message');
+    var messageDiv = document.getElementById('message-list');
+    var messageFocus = document.getElementById('message-focus');
+    function toggleVisibility(index) {
+        messageDiv.style.transform = 'scale(1.0)';
+        messageList[index].classList.toggle('hidden');
+        messageList[index].style.transform = "translateX(0) translateY(0)";
+        messageFocus.style.display = "none";
+        var transX = -200 - 300 * index + "px";
+        // Tính flex-grow cho các div hiển thị
+        var flexGrowValue = 1 / 4;
+        var count = 0;
+        messageList.forEach(function(item) {
+            
+            if (!item.classList.contains('hidden')) {
+                
+                item.style.flexGrow = flexGrowValue;
+                item.style.zIndex = '10';
+
+            } else if (count != index)
+            {
+                messageList[count].classList.remove('hidden')
+                item.style.transform = "translateX(0) translateY(0)";
+                item.style.flexGrow = flexGrowValue;
+                item.style.zIndex = '10';
+            }
+            else {
+                item.style.flexGrow = 0;
+                item.style.transform = "translateX(" + transX + ") translateY(200%)";
+                item.style.zIndex = '1';
+                messageDiv.style.transform = 'scale(0.7)';
+                messageFocus.style.display = "flex";
+
+            }
+            count += 1;
+            
+        });
+        
+    }
+    
+    
+    
+</script>
+@*<div class="text-center">
     <h1 class="display-4">Điền form</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 
@@ -50,4 +628,4 @@
             </div>
         </form>
     </div>
-</div>
+</div>*@

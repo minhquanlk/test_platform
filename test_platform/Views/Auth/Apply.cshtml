@@ -1,0 +1,173 @@
+﻿@model test_platform.Models.Auth.UserInfo
+
+@{
+    ViewData["Title"] = "Registation";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Fullpage content -->
+<div class="ln-fullpage" data-navigation="true">
+    <section class="ln-section d-flex">
+        <div class="container align-self-center text-white text-center">
+            <div class="row">
+                <div class="col-12 col-lg-9 mx-lg-auto">
+                    <h2 class="h1 mb-4 animated" data-animation="fadeInUp">Contact Us</h2>
+                    <div class="divider bg-white mx-auto animated" data-animation="fadeInUp" data-animation-delay="200"></div>
+                    <p class="animated mb-8" data-animation="fadeInUp" data-animation-delay="400">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                    <div class="contact-form text-left animated" data-animation="fadeInUp" data-animation-delay="600">
+                        <form asp-action="Apply" class="needs-validation text-left" novalidate>
+                            <div class="row">
+                                <div class="col-12 col-md-6">
+                                    <div class="mb-3 position-relative">
+                                        <label asp-for="FullName" class="mb-0">Full name</label>
+                                        <input asp-for="FullName" type="text" class="form-control"
+                                               placeholder="Full name" required>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-6">
+                                    <div class="mb-3 position-relative">
+                                        <label asp-for="Email" class="mb-0">Email</label>
+                                        <input asp-for="Email" type="text" class="form-control"
+                                               placeholder="Email" required>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-md-8">
+                                    <div class="mb-3 position-relative">
+                                        <label asp-for="BirthDate" class="mb-0">Birthday</label>
+                                        <input asp-for="BirthDate" type="date" class="form-control"
+                                               placeholder="Date of birth" required>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <div class="position-relative">
+                                        <label asp-for="Gender" class="mb-0">Gender</label>
+                                        <select asp-for="Gender" class="form-control" required>
+                                            <option selected disabled value="">Choose...</option>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                        <div class="invalid-tooltip">
+                                            Please provide a valid state.
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="mb-3 position-relative">
+                                        <label asp-for="PhoneNumber" class="mb-0">Phone Number</label>
+                                        <input asp-for="PhoneNumber" type="text" class="form-control"
+                                               placeholder="Phone number" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12 col-md-4">
+                                    <div class="position-relative">
+                                        <label asp-for="DegreeClassification" class="mb-0">Degree Classification</label>
+                                        <select asp-for="DegreeClassification" class="form-control" required>
+                                            <option selected disabled value="">Your Degree...</option>
+                                            <option value="Bachelor">Chemistry</option>
+                                            <option value="Engineering">Biology</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                        <div class="invalid-tooltip">
+                                            Please provide a valid state.
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <div class="mb-3 position-relative">
+                                        <label asp-for="School" class="mb-0">Your School</label>
+                                        <input asp-for="School" type="text" class="form-control"
+                                               placeholder="University/Collage or Graduated" required>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <div class="mb-3 position-relative">
+                                        <label asp-for="GraduationYear" class="mb-0">Graduation Year</label>
+                                        <input asp-for="GraduationYear" type="text" class="form-control"
+                                               placeholder="Graduation Year" required>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="mb-3 position-relative">
+                                        <label asp-for="Faculty" class="mb-0">Faculty</label>
+                                        <select asp-for="Faculty" class="form-control" required>
+                                            <option selected disabled value="">Your Faculty...</option>
+                                            <option value="Chemistry">Chemistry</option>
+                                            <option value="Biology">Biology</option>
+                                            <option value="Food">Food</option>
+                                            <option value="Other">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="mt-8 text-center">
+
+                                <button class="btn btn-primary" type="submit">Submit form</button>
+                            </div>
+                        </form>
+                        <div class="contact-form-result text-center"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+@*<div class="text-center">
+    <h1 class="display-4">Điền form</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+    <div class="p-2 mt-5">
+        <form class="" asp-action="Index">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="auth-form-group-custom mb-4">
+                <i class="ri-user-2-line auti-custom-input-icon"></i>
+                <label asp-for="FullName">FullName</label>
+                <input asp-for="FullName" class="form-control" placeholder="Họ và tên">
+                <span asp-validation-for="FullName" class="text-danger"></span>
+            </div>
+
+            <div class="auth-form-group-custom mb-4">
+                <i class="ri-mail-line auti-custom-input-icon"></i>
+                <label asp-for="Email">Email</label>
+                <input asp-for="Email" class="form-control" placeholder="Enter email">
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+
+
+            <div class="auth-form-group-custom mb-4">
+                <i class="ri-lock-2-line auti-custom-input-icon"></i>
+                <label asp-for="PhoneNumber">Số điện thoại</label>
+                <input asp-for="PhoneNumber" type="text" class="form-control" placeholder="Số điện thoại">
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+
+            <div class="auth-form-group-custom mb-4">
+                <i class="ri-lock-2-line auti-custom-input-icon"></i>
+                <label asp-for="BirthDate">Ngày sinh</label>
+                <input asp-for="BirthDate" type="datetime" class="form-control" placeholder="Ngày sinh">
+                <span asp-validation-for="BirthDate" class="text-danger"></span>
+            </div>
+
+
+            <div class="text-center">
+                <button class="btn btn-primary w-md waves-effect waves-light" type="submit">Register</button>
+            </div>
+
+            <div class="mt-4 text-center">
+                <p class="mb-0">Nếu bạn đã có tài khoản  <a href=@Url.Action("Index", "Auth") class="text-primary">Đăng nhập</a></p>
+            </div>
+        </form>
+    </div>
+</div>*@

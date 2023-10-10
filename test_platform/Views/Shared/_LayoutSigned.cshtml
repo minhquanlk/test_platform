@@ -40,7 +40,7 @@
                         {
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Auth" asp-action="SignIn">
-                                    @Model.user.FullName
+                                    @UserContext.UserWithRole.User.FullName
                                 </a>
                             </li>
                         } 
@@ -94,6 +94,6 @@
     @RenderSection("scripts", required: false)
 
     <!-- App js -->
-    <script src="~/assets/js/app.js"></script>
+    <script src="~/assets/js/main.js"></script>
 </body>
 </html>
