@@ -2,67 +2,20 @@
 
 @{
     ViewData["Title"] = "UserList";
-    Layout = "~/Views/Shared/_LayoutSigned.cshtml";
+    Layout = "~/Views/Shared/_LayoutComplete.cshtml";
 
 }
 <div class="text-center">
-    <h1 class="display-4">USER LIST</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    <table class="table mt-4">
-        <tr>
-            <th>
-                STT
-            </th>
-            <th>
-                Họ và tên
-            </th>
-            <th>
-                Giới tính
-            </th>
-            <th>
-                Email
-            </th>
-            <th>
-                Số điện thoại
-            </th>
-            <th>
-                Ngày sinh
-            </th>
-            <th></th>
-        </tr>
-        @{
-            int stt = 1; 
-        }
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @stt
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FullName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Gender)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Email)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PhoneNumber)
-                </td>
-                <td>
-                    @item.BirthDate.ToString("dd/MM/yyyy")
-                </td>
-
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new {  id=item.Id  }) |
-
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                </td>
-            </tr>
-        }
-    </table>
+    <h1 class="display-4">Update Quiz</h1>
+    <form asp-action="UploadAccount">
+        <input type="file" class="form-control" />
+        <button class="btn btn-outline-primary" id="submit" style="width: fit-content; padding-left: 10px; padding-right: 10px;" type="submit">Submit</button>
+    </form>
+    <div asp-validation-summary="ModelOnly" class="text-danger text-center bg-white rounded alert-link"></div>
+    <form asp-action="CreateTestQuest"> 
+        <input type="file" class="form-control" />
+        <button class="btn btn-outline-primary" id="submit" style="width: fit-content; padding-left: 10px; padding-right: 10px;" type="submit">Add</button>
+    </form>
 </div>
 
 

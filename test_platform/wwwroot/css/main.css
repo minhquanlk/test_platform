@@ -1,0 +1,158 @@
+/* This file is reserved for overriding and extending the template styles. */
+
+.hidden {
+    display: none !important;
+}
+
+.background-red {
+    background-color: #ffe3e3 !important;
+}
+.background-green {
+    background-color: #d9ffdb !important;
+}
+.shadow-light {
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.1) !important;
+}
+.flex-grow-1 {
+    flex-grow: 1;
+}
+
+.text-incorrect {
+    position: unset !important;
+    color: #ff0000 !important;
+    stroke-width: 3;
+    z-index: 1;
+}
+.text-correct {
+    position: unset !important;
+    color: #016500 !important;
+    stroke-width: 3;
+    z-index: 1;
+}
+.inactive {
+    pointer-events: none !important;
+}
+.list-ques {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+.list-ques .card {
+    margin-bottom: 12px !important;
+    border-radius: 10px;
+}
+.list-ques .card-body {
+    padding: 0.5rem 1rem 0.5rem 1rem;
+}
+.choosed {
+    background: #25b15e;
+    color: white;
+}
+
+.flagging {
+    background: #ff2323 !important;
+    color: white;
+}
+
+.choosed.flagging {
+    border: 2px solid #25b15e;
+}
+
+.flagging > * {
+    color: white !important;
+}
+
+.quiz-container {
+    top: 8rem;
+    height: 85vh;
+    overflow: hidden;
+    padding-right: 1.5rem !important;
+}
+.question-div {
+    overflow-y:scroll;
+    height: 85vh;
+    
+}
+/* Let's get this party started */
+.question-div::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Track */
+.question-div::-webkit-scrollbar-track {
+    background: white;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+/* Handle */
+.question-div::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    background: #6f6f6f;
+}
+
+
+.btn-submit {
+    background-color: #ff8b18;
+    font-weight: 700;
+    font-size: 17px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.1) !important;
+}
+
+.btn-submit:hover {
+    background-color: forestgreen;
+}
+
+.radio-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    max-width: 69.3%;
+    margin-top: -337px;
+    margin-left: 3px;
+
+}
+
+.radio-button-pic {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 110.5px;
+    border: 2px solid transparent;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+
+@media (max-width: 1400px)
+{
+    .radio-container {
+        
+        margin-top: -248px;
+        margin-left: 2.5px;
+    }
+    .radio-button-pic {
+        height: 80.5px;
+    }
+}
+
+
+
+.radio-button-pic input {
+    opacity: 0;
+}
+
+
+.pic-choice {
+    border: 4px solid #1c42b9;
+}
+.border-ques {
+    border: 2px solid;
+    padding: 1rem;
+    flex-direction: column;
+    margin-right: 1rem;
+}

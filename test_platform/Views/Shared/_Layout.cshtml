@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - test_platform</title>
+    <title>@ViewData["Title"] - The Next Masan Talents</title>
     @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/test_platform.styles.css" asp-append-version="true" />*@
@@ -22,11 +22,19 @@
     <link rel="stylesheet" href="~/assets/css/theme.css">
 
     <link rel="stylesheet" href="~/assets/css/custom.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WWJSMPXW5T"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-WWJSMPXW5T');
+    </script>
     @RenderSection("styles", required: false)
    
 </head>
 <body class="layout-wide">
-    <div class="loader bg-dark">
+    <div class="loader bg-light">
         <div class="spinner-grow text-primary" role="status">
             <span class="sr-only">Loading...</span>
         </div>
@@ -34,13 +42,13 @@
     <div id="top"></div>
    
         <!-- Site navigation -->
-        <nav class="site-navbar site-navbar-transparent navbar navbar-expand-lg navbar-dark fixed-top bg-white shadow-light p-lg-4" data-navbar-base="navbar-dark" data-navbar-toggled="navbar-light" data-navbar-scrolled="navbar-light">
+        <nav class="site-navbar site-navbar-transparent navbar navbar-expand-md navbar-dark fixed-top bg-white shadow-light p-lg-4" data-navbar-base="navbar-dark" data-navbar-toggled="navbar-light" data-navbar-scrolled="navbar-light">
 
             <!-- Brand -->
             <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
-                <img src="~/assets/images/MSC_Logo_White.png" class="navbar-brand-img" alt="">
+            <img src="~/assets/images/MSC_Logo.png" class="navbar-brand-img" alt="">
             </a>
-
+            <a class="btn btn-primary hidden apply-mobile ml-lg-3" id="apply-header" href=@Url.Action("Apply", "Auth")>APPLY NOW!</a>
             <!-- Toggler -->
             <button class="navbar-toggler-alternative" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-alternative-icon"></span>
@@ -57,14 +65,20 @@
                     <li class="nav-item" data-menuanchor="our-mission">
                         <a class="nav-link" href="#our-mission">About</a>
                     </li>
-                    <li class="nav-item" data-menuanchor="what-we-do">
-                    <a class="nav-link" href="#what-we-do">Accountabilities</a>
+                    <li class="nav-item" data-menuanchor="criteria">
+                    <a class="nav-link" href="#criteria">Criteria</a>
                     </li>
-                    <li class="nav-item" data-menuanchor="our-solutions">
-                        <a class="nav-link" href="#our-solutions">Criteria</a>
+                <li class="nav-item" data-menuanchor="process">
+                    <a class="nav-link" href="#process">Selection Process</a>
+                </li>
+                    <li class="nav-item" data-menuanchor="journey">
+                    <a class="nav-link" href="#journey">R&D Journey</a>
                     </li>
-                    <li class="nav-item" data-menuanchor="our-work">
-                    <a class="nav-link" href="#our-work">Program Process</a>
+                    <li class="nav-item" data-menuanchor="message">
+                        <a class="nav-link" href="#message">Testimonial</a>
+                    </li>
+                    <li class="nav-item" data-menuanchor="product">
+                        <a class="nav-link" href="#product">Product</a>
                     </li>
                     <li class="nav-item" data-menuanchor="contact">
                         <a class="nav-link" href="#contact">Contact</a>
@@ -73,7 +87,7 @@
 
                 
                 <!-- Button -->
-            <a class="btn btn-primary d-block d-lg-inline-block ml-lg-3" href=@Url.Action("Apply", "Auth")>APPLY NOW!</a>
+            <a class="btn btn-primary d-block d-lg-inline-block ml-lg-3" id="apply-header" href=@Url.Action("Apply", "Auth")>APPLY NOW!</a>
 
             </div>
         </nav>
@@ -101,20 +115,9 @@
         </nav>*@
     
    
-    <!-- Scroll progress -->
-    <div class="scroll-progress">
-        <div class="sp-left">
-            <div class="sp-inner"></div>
-            <div class="sp-inner progress"></div>
-        </div>
-        <div class="sp-right">
-            <div class="sp-inner"></div>
-            <div class="sp-inner progress"></div>
-        </div>
-    </div>
+    
     <!-- Back To Top Button -->
     <a href="#top" class="backtotop">
-        <span>Back To Top</span>
         <i class="fas fa-angle-up"></i>
     </a>
    
@@ -123,49 +126,17 @@
         
    
 
-    <!-- Footer -->
-    <footer class="position-relative py-10 py-lg-12 bg-dark text-gray-500">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-10 col-xl-12 col-xxl-10 mx-auto text-center">
-                    <ul class="list-inline mb-5">
-                        <li class="list-inline-item mx-0">
-                            <a class="btn btn-icon btn-text-secondary text-gray-400" href="#" tabindex="0">
-                                <i class="fab fa-facebook-f btn-icon-inner"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item mx-0">
-                            <a class="btn btn-icon btn-text-secondary text-gray-400" href="#" tabindex="0">
-                                <i class="fab fa-twitter btn-icon-inner"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item mx-0">
-                            <a class="btn btn-icon btn-text-secondary text-gray-400" href="#" tabindex="0">
-                                <i class="fab fa-linkedin-in btn-icon-inner"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item mx-0">
-                            <a class="btn btn-icon btn-text-secondary text-gray-400" href="#" tabindex="0">
-                                <i class="fab fa-dribbble btn-icon-inner"></i>
-                            </a>
-                        </li>
-                    </ul>
-                    <p class="mb-0">© 2023 MASAN TALENTS PROGRAM </p>
-                </div>
-            </div>
-        </div>
-    </footer>
-    <!-- footer end -->
+   
 
     <!-- Fullpage - Social icons -->
-    <nav class="ln-social-icons">
-        <ul class="mx-auto">
-            <li><a href="#!"><i class="fab fa-facebook-f"></i></a></li>
-            <li><a href="#!"><i class="fab fa-twitter"></i></a></li>
-            <li><a href="#!"><i class="fab fa-instagram"></i></a></li>
-            <li><a href="#!"><i class="fab fa-pinterest"></i></a></li>
-        </ul>
-    </nav>
+    <div class="social-list-btn d-flex flex-column">
+        <a class="social-btn" id="apply-now-btn" href="#!">APPLY NOW!</a>
+        <a class="social-btn" href="https://www.facebook.com/masanconsumercareers" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        <a class="social-btn" href="https://www.linkedin.com/company/masan-consumer-holdings/" target="_blank"><i class="fab fa-linkedin"></i></a>
+        <a class="social-btn" href="#!"><i class="fab fa-google"></i></a>
+
+    </div>
+   
 
     <!-- Fullpage - Copyright -->
     <div class="ln-copyright text-right">
@@ -190,5 +161,23 @@
 
     <!-- App js -->
     <script src="~/assets/js/main.js"></script>
+    <script>
+        const btnApply = document.getElementById('apply-now-btn');
+        const btnHeader = document.getElementById('apply-header');
+        
+        var isBlue = true;
+        setInterval(function () {
+            if (isBlue === false) {
+                isBlue = true;
+                btnApply.style.backgroundColor = "#0b58a1";
+                btnHeader.style.backgroundColor = "#0b58a1";
+            }
+            else {
+                isBlue = false;
+                btnApply.style.backgroundColor = "#ef9354";
+                btnHeader.style.backgroundColor = "#ef9354";
+            }
+        }, 500);
+    </script>
 </body>
 </html>

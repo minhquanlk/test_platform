@@ -198,7 +198,7 @@ License: https://themeforest.net/licenses/standard
   }
 
   function ln_screenDetector() {
-    if( getWindowWidth() >= 1200 && getWindowHeight() >= 768 ){
+    if( getWindowWidth() >= 900 && getWindowHeight() >= 500 ){
       $body.removeClass('layout-mobile');
     } else {
       $body.addClass('layout-mobile');
@@ -206,10 +206,17 @@ License: https://themeforest.net/licenses/standard
   }
 
   // [1. Loader]
-  window.addEventListener( 'load', function(){
-    document.querySelector('body').classList.add('loaded');
-  });
-
+    window.addEventListener('load', function () {
+        if (!document.querySelector('body').classList.contains('loaded')) {
+            document.querySelector('body').classList.add('loaded');
+        }
+      
+    });
+    setTimeout(function () {
+        if (!document.querySelector('body').classList.contains('loaded')) {
+            document.querySelector('body').classList.add('loaded');
+        }
+    }, 5000); 
   // [2. Fullpage]
   function ln_fullpage() {
     if( $ln_fullPage.length > 0 ){
@@ -225,7 +232,7 @@ License: https://themeforest.net/licenses/standard
 
       Waypoint.destroyAll();
 
-      if( getWindowWidth() >= 1200 && getWindowHeight() >= 768 ){
+      if( getWindowWidth() >= 900 && getWindowHeight() >= 500 ){
         if( !$ln_fullPage.hasClass('fullpage-wrapper') || $ln_fullPage.hasClass('fp-destroyed') ){
 
           $('.ln-section').each(function(){
@@ -274,12 +281,16 @@ License: https://themeforest.net/licenses/standard
             onLeave: function(index, nextIndex, direction){
               if(nextIndex === 1){
                 $body.addClass('ln-fullpage-intro-active');
-                $backtotop.removeClass('active');
+                  $backtotop.removeClass('active');
+                  var video = document.getElementById('myVideoId');
+                  video.pause();
+                  video.currentTime = 0;
+                  video.load();
               } else {
                 $body.removeClass('ln-fullpage-intro-active');
                 $backtotop.addClass('active');
               }
-
+                
               // Global overlay animation - background color and opacity
               var sectionOverlayColor = $('.ln-section').eq( nextIndex - 1 ).attr('data-overlay-color'),
                 sectionOverlayOpacity = parseInt($('.ln-section').eq( nextIndex - 1 ).attr('data-overlay-opacity'), 10);
@@ -382,7 +393,7 @@ License: https://themeforest.net/licenses/standard
 
   // [4. Scroll progress]
   function ln_scrollProgress(nextIndex) {
-    if( getWindowWidth() >= 1200 ){
+    if( getWindowWidth() >= 200 ){
       if( nextIndex === 'none' && !$body.hasClass('ln-fullpage-active') ){
         var scvp = $(window).scrollTop(),
 		  dh = $(document).height();
@@ -423,8 +434,7 @@ License: https://themeforest.net/licenses/standard
           offset: 0,
           easing: 'swing',
           speed: 800,
-          scrollTarget: target,
-          preventDefault: false
+          scrollTarget: target
         });
       }
     });
@@ -444,7 +454,7 @@ License: https://themeforest.net/licenses/standard
         ln_navigationChangeClasses();
       }
     });
-
+    
     // Close nav on click outside of '.site-navbar'
     $(document).on( 'click touchstart', function(e){
       if ( $('.site-navbar').is(e.target) || $(e.target).parents('.site-navbar').length > 0 || $('.site-navbar').is(e.target) || $(e.target).hasClass('navbar-toggler') ){
@@ -493,7 +503,7 @@ License: https://themeforest.net/licenses/standard
   function ln_navigationResize(){
     var scrollPos = $(window).scrollTop();
 
-    if( getWindowWidth() >= 1200 ){
+    if( getWindowWidth() >= 900 ){
       if ( $siteNavbarToggler.attr('aria-expanded') == 'true' ){
         $siteNavbar.removeClass('navbar-toggled-show');
         $siteNavbarCollapse.removeClass('show').css( 'display', '' );
@@ -660,7 +670,7 @@ License: https://themeforest.net/licenses/standard
         name: 'basic-gradient',
         direction: 'left-right', // 'diagonal', 'top-bottom', 'radial'
         opacity: [1, 1],
-        isPausedWhenNotInView: true,
+        isPausedWhenNotInView: false,
         states : {
           "default-state": {
             gradients: colours
@@ -817,20 +827,20 @@ License: https://themeforest.net/licenses/standard
     var slider = $('.slider');
 
     if(slider.length > 0){
-      if( getWindowWidth() >= 992 && getWindowHeight() >= 768 ){
         if( !slider.hasClass('slick-initialized') ){
-          slider.slick({
+            slider.slick({
             slidesToShow: 1,
             infinite: true,
+            dots: true,
             nextArrow: '<button type="button" class="slick-next"><i class="fas fa-angle-right"></i></button>',
             prevArrow: '<button type="button" class="slick-prev"><i class="fas fa-angle-left"></i></button>'
-          });
+            });
         }
-      } else {
-        if( slider.hasClass('slick-initialized') ){
-          slider.slick('unslick');
-        }
-      }
+    } else {
+    if( slider.hasClass('slick-initialized') ){
+        slider.slick('unslick');
+    }
+     
     }
   }
 
@@ -928,7 +938,10 @@ License: https://themeforest.net/licenses/standard
   });
 
   $(window).on('load', function(){
-    $(window).scroll();
+      $(window).scroll();
+      if (typeof QuizDetail !== 'undefined') {
+          const quizDetail = new QuizDetail();
+      }
   });
 
   $(window).on('resize', function(){
@@ -948,3 +961,23 @@ License: https://themeforest.net/licenses/standard
   });
 
 })(jQuery);
+
+$('#gpa-scale-4').on('click', function () {
+    document.getElementById('gpa-4').classList.remove('hidden');
+    document.getElementById('gpa-4').setAttribute("required", "");
+    document.getElementById('gpa-10').classList.add('hidden');
+    document.getElementById('gpa-10').removeAttribute("required");
+    document.getElementById('gpa-10').value = ""; 
+    document.getElementById('gpa-10').setAttribute("disabled", "");
+    document.getElementById('gpa-4').removeAttribute("disabled");
+})
+
+$('#gpa-scale-10').on('click', function () {
+    document.getElementById('gpa-10').classList.remove('hidden');
+    document.getElementById('gpa-10').setAttribute("required", "");
+    document.getElementById('gpa-4').classList.add('hidden');
+    document.getElementById('gpa-4').removeAttribute("required");
+    document.getElementById('gpa-4').value = "";
+    document.getElementById('gpa-4').setAttribute("disabled", "");
+    document.getElementById('gpa-10').removeAttribute("disabled");
+})

@@ -1,129 +1,207 @@
 ﻿@model test_platform.Models.Auth.UserInfo
 
 @{
-    ViewData["Title"] = "Registation";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Registration";
+    Layout = "~/Views/Shared/_LayoutApply.cshtml";
 }
 
 <!-- Fullpage content -->
-<div class="ln-fullpage" data-navigation="true">
-    <section class="ln-section d-flex">
-        <div class="container align-self-center text-white text-center">
-            <div class="row">
-                <div class="col-12 col-lg-9 mx-lg-auto">
-                    <h2 class="h1 mb-4 animated" data-animation="fadeInUp">Contact Us</h2>
-                    <div class="divider bg-white mx-auto animated" data-animation="fadeInUp" data-animation-delay="200"></div>
-                    <p class="animated mb-8" data-animation="fadeInUp" data-animation-delay="400">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                    <div class="contact-form text-left animated" data-animation="fadeInUp" data-animation-delay="600">
-                        <form asp-action="Apply" class="needs-validation text-left" novalidate>
-                            <div class="row">
-                                <div class="col-12 col-md-6">
-                                    <div class="mb-3 position-relative">
-                                        <label asp-for="FullName" class="mb-0">Full name</label>
-                                        <input asp-for="FullName" type="text" class="form-control"
-                                               placeholder="Full name" required>
+<div class="overflow-div">
+    <section class="d-flex justify-content-center">
+           <img class="bg-about" src="~/assets/images/background-criteria.png" alt="background">
+            
+
+        <img class="title-home block-event" src="~/assets/images/main-title-nohand.png" alt=""><img class="bg-about" src="~/assets/images/background-criteria.png" alt="background">
+
+
+        <img class="title-home block-event" src="~/assets/images/main-title-nohand.png" alt="">
+        <div class="form-register">
+            <div class="d-flex flex-column flex-wrap align-content-center">
+                    <div class="container-form" style="width: 70%;">
+                        <div class="title">
+                        <div asp-validation-summary="ModelOnly" class="text-danger text-center bg-white rounded alert-link"></div>
+                        <h1 style="text-transform: uppercase;">WELCOME TO THE NEXT MASAN R&D TALENTS 2023</h1> 
+                        <p>
+                            The registration period for the program has expired. If you need any support, please contact us via:
+                        </p>
+                            <ul>
+                            <li> <strong> Facebook:</strong> Masan Consumer Careers  </li>
+                                <li>
+                                <strong> Email: </strong> <a href="mailto:careers-masan@msc.masangroup.com"> careers-masan@msc.masangroup.com</a> 
+                            </li>
+                        </ul>
+                        <p>Thank you for your time and interest!</p>
+                        </div>
+                    <div class="content">
+                            <div id="thanks" style="display: none;">Thank you for your application. Please check you inbox/spam folders.</div>
+
+                        <form method="post" enctype="multipart/form-data" asp-action="Apply" class="row needs-validation" novalidate>
+                            <div id="form" class="mb-4">
+                                <strong style="color: red;">* <i>Required</i></strong>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="CV" class="form-label">Your Resume/CV</label>
+                                    <input asp-for="CV" class="form-control" type="file" id="formFile" required>
+                                    <div id="formFile-help" class="form-text"><i>Please name your resume file as: Full Name - Applied Function (1st priority). Example: Nguyen Van A - Trade Marketing</i></div>
+                                    <div class="invalid-feedback"> Please upload your resume. </div>
+                                </div>
+                                <h4 class="mb-3"><b>I. Personal Information</b></h4>
+                                <div class="mb-3">
+                                    <label for="full-name" class="form-label">1. Full Name: <strong style="color: red;">*</strong></label>
+                                    <input asp-for="FullName" type="text" id="full-name" class="form-control" placeholder="Enter your name" required>
+                                    <div class="invalid-feedback"> Please fill your name. </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="year-of-birth" class="form-label">2. Year of birth: <strong style="color: red;">*</strong></label>
+                                     <input asp-for="BirthDate" class="form-control" type="date" id="year-of-birth" required>
+                                   
+                                    <div class="invalid-feedback"> Please select. </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="gender" class="form-label">3. Gender: <strong style="color: red;">*</strong></label>
+                                    <select asp-for="Gender" class="form-select" id="gender" required>
+                                        <option selected disabled value="">Choose your gender</option>
+                                        <option value="Male">Male</option>
+                                        <option value="Female">Female</option>
+                                        <option value="Others">Others</option>
+                                    </select>
+                                    <div class="invalid-feedback"> Please select. </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="phone-number" class="form-label">4. Phone Number: <strong style="color: red;">*</strong> </label>
+                                    <div class="input-group">
+                                        <span class="input-group-text" id="phone-addon">(+84)</span>
+                                        <input asp-for="PhoneNumber" type="tel" id="phone-number" class="form-control" aria-describedby="phone-addon" placeholder="Enter your phone number" required>
+                                        <div class="invalid-feedback"> Please fill your phone number. </div>
                                     </div>
                                 </div>
-                                <div class="col-12 col-md-6">
-                                    <div class="mb-3 position-relative">
-                                        <label asp-for="Email" class="mb-0">Email</label>
-                                        <input asp-for="Email" type="text" class="form-control"
-                                               placeholder="Email" required>
+                                <div class="col-md-6 mb-3">
+                                    <label for="email" class="form-label">5. Email: <strong style="color: red;">*</strong> </label>
+                                    <input type="email" id="email" class="form-control" asp-for="Email" placeholder="Enter your email" required>
+                                    <div class="invalid-feedback"> Please fill your email correctly. </div>
+                                </div>
+                                <div class="col-md-12 mb-3">
+                                    <label for="location" class="form-label">6. Your current address: <strong style="color: red;">*</strong> </label>
+                                    <select asp-for="City" class="form-select" id="location" required>
+                                        <option selected disabled value="">Choose your city</option>
+                                        <option value="Ho Chi Minh City">Ho Chi Minh City</option>
+                                        <option value="Ha Noi City">Ha Noi City</option>
+                                        <option value="Da Nang City">Da Nang City</option>
+                                        <option value="Binh Duong">Binh Duong</option>
+                                        <option value="Dong Nai">Dong Nai</option>
+                                        <option value="Other">Others</option>
+                                    </select>
+                                    <div class="invalid-feedback"> Please select. </div>
+                                    <input asp-for="otherCity" type="text" id="other-location" class="mt-3 form-control hidden" placeholder="Enter your city">
+                                </div>
+                                <h4 class="mt-4 mb-3"><strong>II. Education</strong></h4>
+                                <div class="col-md-6 mb-3">
+                                    <label for="university" class="form-label">7. Your university: <strong style="color: red;">*</strong></label>
+                                    <select asp-for="School" class="form-select" id="university" required>
+                                        <option selected disabled value="">Choose your university</option>
+                                        <option value="HCMUT - Ho Chi Minh City University of Technology">HCMUT - Ho Chi Minh City University of Technology</option>
+                                        <option value="HCMUAF - Ho Chi Minh City University of Agriculture and Forestry">HCMUAF - Ho Chi Minh City University of Agriculture and Forestry</option>
+                                        <option value="HUST - Hanoi University of Science and Technology">HUST - Hanoi University of Science and Technology</option>
+                                        <option value="VNUA - Vietnam National University of Agriculture">VNUA - Vietnam National University of Agriculture</option>
+                                        <option value="HUIT - Ho Chi Minh City University of Industry and Trade">HUIT - Ho Chi Minh City University of Industry and Trade</option>
+                                        <option value="STU -  Saigon Technology University">STU -  Saigon Technology University</option>
+                                        <option value="HCMCOU - Ho Chi Minh City Open University">HCMCOU - Ho Chi Minh City Open University</option>
+                                        <option value="HSU - Hoa Sen University">HSU - Hoa Sen University</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                    <div class="invalid-feedback"> Please select. </div>
+                                    <input asp-for="otherSchool" type="text" id="other-university" class="mt-3 form-control hidden" placeholder="Enter your University/College">
+                                   
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="major" class="form-label">8. Major: <strong style="color: red;">*</strong></label>
+                                    <select asp-for="Major" class="form-select" id="major" required>
+                                        <option selected disabled value="">Choose your university</option>
+                                        <option value="Food Technology">Food Technology</option>
+                                        <option value="Biotechnology">Biotechnology</option>
+                                        <option value="Polymer Materials">Polymer Materials</option>
+                                        <option value="Other">Other</option>
+                                    </select>
+                                    <div class="invalid-feedback"> Please fill your major. </div>
+                                    <input asp-for="otherMajor" type="text" id="other-major" class="mt-3 form-control hidden" placeholder="Enter your Major">
+                                </div>
+                                <div class="col-md-6 mb-3" id="graduate">
+                                    <label for="graduate" class="form-label">9. Graduation year <strong style="color: red;">*</strong></label>
+                                    <input asp-for="GraduationYear" type="number" id="graduate" class="form-control" required placeholder="Enter your Graduation year">
+                                    <div class="invalid-feedback"> Please input the correct GPA. </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label class="form-label">11. Your GPA (Grade Point Average) scale: <strong style="color: red;">*</strong></label>
+                                    <div class="form-check">
+                                        <input asp-for="GPAScale" class="form-check-input" type="radio" id="gpa-scale-4" value="4" checked>
+                                        <label class="form-check-label" for="gpa-scale-4">4</label>
                                     </div>
+                                    <div class="form-check">
+                                        <input asp-for="GPAScale" class="form-check-input" type="radio" id="gpa-scale-10" value="10">
+                                        <label class="form-check-label" for="gpa-scale-10">10</label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                   
+                                </div>
+                                <div class="col-md-6 mb-3" id="gpa">
+                                    <label for="gpa-4" class="form-label">12. Your GPA: <strong style="color: red;">*</strong></label>
+                                    <input asp-for="GPA" type="number" id="gpa-4" class="form-control" required min="0" max="4" step="0.1" placeholder="Enter your GPA">
+                                    <input asp-for="GPA" type="number" id="gpa-10" class="form-control hidden" disabled min="0" max="10" step="0.1" placeholder="Enter your GPA">
+                                    <div class="invalid-feedback"> Please input the correct GPA. </div>
                                 </div>
                                 
-                            </div>
-                            <div class="row">
-                                <div class="col-12 col-md-8">
-                                    <div class="mb-3 position-relative">
-                                        <label asp-for="BirthDate" class="mb-0">Birthday</label>
-                                        <input asp-for="BirthDate" type="date" class="form-control"
-                                               placeholder="Date of birth" required>
-                                    </div>
+                                <div class="mt-3" style="display: flex; justify-content: center;">
+                                    <button class="btn btn-outline-primary" id="submit" style="width: fit-content; padding-left: 10px; padding-right: 10px;" type="submit">Submit form</button>
+                                    <button style="display: none" class="btn btn-outline-primary" id="loading" style="width: fit-content; padding-left: 10px; padding-right: 10px; color: #003b45;" disabled>
+                                        <span class="spinner-border spinner-border-sm" style="color: #003b45" role="status" aria-hidden="true"></span>
+                                        <span style="color: #003b45;">Loading...</span>
+                                    </button>
                                 </div>
-                                <div class="col-12 col-md-4">
-                                    <div class="position-relative">
-                                        <label asp-for="Gender" class="mb-0">Gender</label>
-                                        <select asp-for="Gender" class="form-control" required>
-                                            <option selected disabled value="">Choose...</option>
-                                            <option value="Male">Male</option>
-                                            <option value="Female">Female</option>
-                                            <option value="Other">Other</option>
-                                        </select>
-                                        <div class="invalid-tooltip">
-                                            Please provide a valid state.
-                                        </div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="mb-3 position-relative">
-                                        <label asp-for="PhoneNumber" class="mb-0">Phone Number</label>
-                                        <input asp-for="PhoneNumber" type="text" class="form-control"
-                                               placeholder="Phone number" required>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12 col-md-4">
-                                    <div class="position-relative">
-                                        <label asp-for="DegreeClassification" class="mb-0">Degree Classification</label>
-                                        <select asp-for="DegreeClassification" class="form-control" required>
-                                            <option selected disabled value="">Your Degree...</option>
-                                            <option value="Bachelor">Chemistry</option>
-                                            <option value="Engineering">Biology</option>
-                                            <option value="Other">Other</option>
-                                        </select>
-                                        <div class="invalid-tooltip">
-                                            Please provide a valid state.
-                                        </div>
-
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-4">
-                                    <div class="mb-3 position-relative">
-                                        <label asp-for="School" class="mb-0">Your School</label>
-                                        <input asp-for="School" type="text" class="form-control"
-                                               placeholder="University/Collage or Graduated" required>
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-4">
-                                    <div class="mb-3 position-relative">
-                                        <label asp-for="GraduationYear" class="mb-0">Graduation Year</label>
-                                        <input asp-for="GraduationYear" type="text" class="form-control"
-                                               placeholder="Graduation Year" required>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="mb-3 position-relative">
-                                        <label asp-for="Faculty" class="mb-0">Faculty</label>
-                                        <select asp-for="Faculty" class="form-control" required>
-                                            <option selected disabled value="">Your Faculty...</option>
-                                            <option value="Chemistry">Chemistry</option>
-                                            <option value="Biology">Biology</option>
-                                            <option value="Food">Food</option>
-                                            <option value="Other">Other</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mt-8 text-center">
-
-                                <button class="btn btn-primary" type="submit">Submit form</button>
-                            </div>
-                        </form>
-                        <div class="contact-form-result text-center"></div>
-                    </div>
+                            </form>
                 </div>
+                    </div>
+                   
             </div>
         </div>
     </section>
 </div>
-
+<script>
+    const selectReasonUni = document.getElementById('university');
+    const otherReasonInputUni = document.getElementById('other-university');
+    const selectReasonMajor = document.getElementById('major');
+    const otherReasonInputMajor = document.getElementById('other-major');
+    const selectReasonCity = document.getElementById('location');
+    const otherReasonInputCity = document.getElementById('other-location');
+    // Lắng nghe sự kiện thay đổi chọn
+    selectReasonUni.addEventListener('change', function () {
+        if (selectReasonUni.value === 'Other') {
+            otherReasonInputUni.classList.remove('hidden');
+            otherReasonInputUni.setAttribute('required',"");
+        } else {
+            otherReasonInputUni.classList.add('hidden');
+            otherReasonInputUni.removeAttribute('required');
+        }
+    });
+    selectReasonMajor.addEventListener('change', function () {
+        if (selectReasonMajor.value === 'Other') {
+            otherReasonInputMajor.classList.remove('hidden');
+            otherReasonInputMajor.setAttribute('required', "");
+        } else {
+            otherReasonInputMajor.classList.add('hidden');
+            otherReasonInputMajor.removeAttribute('required');
+        }
+    });
+    selectReasonCity.addEventListener('change', function () {
+        if (selectReasonCity.value === 'Other') {
+            otherReasonInputCity.classList.remove('hidden');
+            otherReasonInputCity.setAttribute('required', "");
+        } else {
+            otherReasonInputCity.classList.add('hidden');
+            otherReasonInputCity.removeAttribute('required');
+        }
+    });
+</script>
 @*<div class="text-center">
     <h1 class="display-4">Điền form</h1>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>

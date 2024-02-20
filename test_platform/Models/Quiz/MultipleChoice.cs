@@ -7,29 +7,26 @@ namespace test_platform.Models.Quiz
 {
     public class MultipleChoice
     {
-        [Key]
-        public int Id { get; set; }
-        [Required]
-        public QuestionType Type { get; set; }
-
-        [Required]
+       
+        public int IdPic { get; set; }
+        public string Id { get; set; }
+        public string Topic { get; set; }
+       
+        public string Type { get; set; }
+    
+        public string QuestionPic { get; set; }
+     
         public string QuestionText { get; set; }
 
-        [Required]
-        public List<string> Choices { get; set; }
+     
+        public Dictionary<string, string> Choices { get; set; }
 
-        [Required]
-        public List<string> CorrectAnswer { get; set; }
+  
+        public Dictionary<string, string> CorrectAnswer { get; set; }
 
-        [Required]
-        public int Point { get; set; }
+ 
+        public double Point { get; set; }
 
     }
 
-    public enum QuestionType
-    {
-        TracNghiemDon,
-        TracNghiemNhieu,
-        TuLuan
-    }
 }

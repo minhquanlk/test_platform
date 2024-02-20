@@ -1,0 +1,297 @@
+﻿@model test_platform.Models.Quiz.QuizViewModel
+
+@{
+    ViewData["Title"] = "Test";
+    Layout = "~/Views/Shared/_LayoutSigned.cshtml";
+
+}
+<link rel="stylesheet" href="~/css/nonScroll.css" type="text/css">
+<!-- Content Start -->
+@{
+    int correct = 0;
+
+    int minute = Model.Answer.During / 60;
+    int second = Model.Answer.During % 60;
+    int numQues = Model.QuizInfoList[0].QuestionArr.Count;
+    foreach (var item in Model.QuizInfoList[0].QuestionArr.ToList())
+    {
+        var correctAns = item.Value.CorrectAnswer.Values.ToList();
+        var userChoices = Model.Answer.UserChoices[item.Key].Values.ToList();
+        var areEqual = correctAns.Count == userChoices.Count && correctAns.Intersect(userChoices).Count() == correctAns.Count;
+        if (areEqual)
+        {
+            correct++;
+        }
+    }
+}
+<div class="container">
+    <div class="row g-5">
+        <div class="col-lg-4 col-xxl-3">
+            <h2 class="small-title">Quiz Result</h2>
+            <div class="card mb-5 align-items-center">
+                <div class="card-body">
+                    <div class="mb-3 text-muted">
+                        Pie fruitcake jelly beans. Candy tootsie chocolate croissant jujubes icing chocolate croissant jujubes icing macaroon croissant.
+                    </div>
+                    <div class="row g-0 align-items-center mb-1">
+                        <div class="col-auto">
+                            <div class="sw-3 sh-4 d-flex justify-content-center align-items-center">
+                                <i data-acorn-icon="form-check" class="text-primary"></i>
+                            </div>
+                        </div>
+                        <div class="col ps-3">
+                            <div class="row g-0">
+                                <div class="col">
+                                    <div class="text-alternate sh-4 d-flex align-items-center lh-1-25">Correct Answer</div>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="sh-4 d-flex align-items-center text-alternate">@correct/@numQues</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-0 align-items-center mb-1">
+                        <div class="col-auto">
+                            <div class="sw-3 sh-4 d-flex justify-content-center align-items-center">
+                                <i data-acorn-icon="clock" class="text-primary"></i>
+                            </div>
+                        </div>
+                        <div class="col ps-3">
+                            <div class="row g-0">
+                                <div class="col">
+                                    <div class="text-alternate sh-4 d-flex align-items-center lh-1-25">Completion Time</div>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="sh-4 d-flex align-items-center text-alternate">@minute.ToString()m @second.ToString()s</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-0 align-items-center">
+                        <div class="col-auto">
+                            <div class="sw-3 sh-4 d-flex justify-content-center align-items-center">
+                                <i data-acorn-icon="star" class="text-primary"></i>
+                            </div>
+                        </div>
+                        <div class="col ps-3">
+                            <div class="row g-0">
+                                <div class="col">
+                                    <div class="text-alternate sh-4 d-flex align-items-center lh-1-25">Points</div>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="sh-4 d-flex align-items-center text-alternate">@Model.Answer.Points.ToString("F3")</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <h2 class="small-title">Questions List</h2>
+            <div class="row row-cols-6">
+                @{
+                    int a = 1;
+                }
+                @foreach (var item in Model.QuizInfoList[0].QuestionArr.ToList())
+                {
+
+                    string target = "#" + item.Key;
+                    <a class="list-ques" href=@target>
+                        <div class="card align-items-center">
+                            <div class="card-body">
+                                @a
+                            </div>
+                        </div>
+                    </a>
+                    a++;
+                }
+
+
+
+            </div>
+            
+        </div>
+        <div class="col-lg-8 col-xxl-9 question-div">
+            <h2 class="small-title">Questions</h2>
+            @{
+                int i = 0;
+                List<char> chr = new List<char>() {'0', 'A', 'B', 'C', 'D', 'E'};
+            }
+            
+                @foreach (var item in Model.QuizInfoList[0].QuestionArr.ToList())
+                {
+                    int y = 0;
+                    i += 1;
+                    string name = item.Key;
+                    string type = item.Value.Type;
+                    var correctAns = item.Value.CorrectAnswer.Values.ToList();
+                    var userChoices = Model.Answer.UserChoices[name].Values.ToList();
+                    var areEqual = correctAns.Count == userChoices.Count && correctAns.Intersect(userChoices).Count() == correctAns.Count;
+                <div class="card mb-3" id=@name>
+                    <div class="card-body">
+                        <div class="d-flex flex-row align-content-center align-items-center mb-5">
+                            <div class="sw-5 me-4">
+                                <div class="border border-1 border-primary bg-primary rounded-xl sw-5 sh-5 text-white d-flex justify-content-center align-items-center">@i</div>
+                            </div>
+                            <div class="heading mb-0 text-primary flex-grow-1">
+                                @item.Value.QuestionText
+                            </div>
+                            @if (areEqual)
+                            {
+                                <div class="heading mb-0 text-primary point correct">
+                                    <i style="color: green">Point: @item.Value.Point</i>
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="heading mb-0 point incorrect">
+                                    <i style="color: red">Point: 0</i>
+                                </div>
+                            }
+                        </div>
+
+                        @foreach (var answer in item.Value.Choices.ToList())
+                        {
+                            y += 1;
+                            string id = name + "_" + answer.Key;
+                            string divId = id + "div";
+                            string ans = "ans" + y.ToString();
+                            
+                            <div class="d-flex filled custom-control-container btn-foreground flex-row align-content-center align-items-center position-relative mb-3 inactive" id=@divId onclick="checkedFunc()">
+                                <div class="sw-5 me-4 d-flex justify-content-center flex-grow-0 flex-shrink-0">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        @if (type == "single")  {
+                                            if (correctAns.Contains(answer.Value) && userChoices.Contains(answer.Value))
+                                            {
+                                                <input type="radio" checked class="btn-check correctAns" id=@id value=@answer.Value name=@name />
+                                            }
+                                            else if (!correctAns.Contains(answer.Value) && userChoices.Contains(answer.Value))
+                                            {
+                                                <input type="radio" checked class="btn-check inCorrectAns" id=@id value=@answer.Value name=@name />
+                                                
+                                            }
+                                            else if (correctAns.Contains(answer.Value))
+                                            {
+                                                <input type="radio" class="btn-check correctAns" id=@id value=@answer.Value name=@name />
+                                            }
+                                            else
+                                            {
+                                                <input type="radio" class="btn-check" id=@id value=@answer.Value name=@name />
+                                            }
+                                            <label class="btn btn-foreground hover-outline sw-4 sh-4 p-0 rounded-xl d-flex justify-content-center align-items-center stretched-link mb-0 shadow-light"
+                                                   for=@id>
+                                                @chr[y]
+                                            </label>
+                                        } 
+                                        else
+                                        {
+                                            if (correctAns.Contains(answer.Value) && userChoices.Contains(answer.Value))
+                                            {
+                                                <input type="checkbox" checked class="btn-check check-box correctAns" id=@id value=@answer.Value name=@name />
+                                            }
+                                            else if (!correctAns.Contains(answer.Value) && userChoices.Contains(answer.Value))
+                                            {
+                                                <input type="checkbox" checked class="btn-check check-box inCorrectAns" id=@id value=@answer.Value name=@name />
+
+                                            }
+                                            else if (correctAns.Contains(answer.Value))
+                                            {
+                                                <input type="checkbox" class="btn-check check-box correctAns inCorrect" id=@id value=@answer.Value name=@name />
+                                            }
+                                            else
+                                            {
+                                                <input type="checkbox" class="btn-check check-box" id=@id value=@answer.Value name=@name />
+                                            }
+                                            <label class="btn btn-foreground hover-outline sw-4 sh-4 p-0 rounded-sm d-flex justify-content-center align-items-center stretched-link mb-0 shadow-light"
+                                                       for=@id>
+                                                    @chr[y]
+                                            </label>
+                                        }
+                                    
+                                    </div>
+                                </div>
+                                <div class="mb-0 text-alternate flex-grow-1">
+                                    @answer.Value
+                                </div>
+                                <i data-acorn-icon="check" class="d-inline-block text-correct hidden"></i>
+                                <i data-acorn-icon="close" class="d-inline-block text-incorrect hidden"></i>
+                            </div>
+                            
+                        }
+                        @if (type != "single")
+                        {
+                            <div class="mb-0 text-alternate">
+                                <i>* Multiple Answers</i>
+                            </div>
+                        }
+                    </div>
+                </div>
+                
+                }
+            
+
+                
+            
+        </div>
+    </div>
+<!-- Content End -->
+</div>
+<script>
+    const radios = document.querySelectorAll('.btn-check');
+    const parents = document.querySelectorAll('.filled');
+    const correct = document.querySelectorAll('.text-correct');
+    const incorrect = document.querySelectorAll('.text-incorrect');
+    const cards = document.querySelectorAll('.card');
+    const pointsList = document.querySelectorAll('.point');
+    const targetList = document.querySelectorAll('.list-ques .card');
+    radios.forEach((radio, index) => {
+            
+        if (radio.checked) {
+            parents[index].classList.add('active');
+            if (radio.classList.contains("correctAns")) {
+                correct[index].classList.remove("hidden");
+            }
+        } else {
+            if (radio.classList.contains("inCorrect")) {
+                incorrect[index].classList.remove("hidden");
+            }
+            parents[index].classList.remove('active');
+        }
+        if (radio.classList.contains("correctAns"))
+        {
+            parents[index].classList.add("background-green");
+        }
+        else if (radio.classList.contains("inCorrectAns")) {
+            parents[index].classList.add("background-red");
+            incorrect[index].classList.remove("hidden")
+        }
+    });
+    cards.forEach(card => {
+        var isCheck = false;
+        const radioButtons = card.querySelectorAll('.btn-check');
+
+ 
+        radioButtons.forEach(radio => {
+            if (radio.checked) {
+                isCheck = true;
+            } 
+                
+        });
+        if (isCheck) {
+            card.classList.add('shadow-green');
+        } else {
+            card.classList.remove('shadow-green');
+        }
+    });
+    pointsList.forEach((point,index) => {
+        if (point.classList.contains("correct"))
+        {
+            targetList[index].classList.add("choosed");
+        }
+        else {
+            targetList[index].classList.add("flagging");
+        }
+    });
+
+</script>
+
+

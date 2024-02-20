@@ -8,6 +8,13 @@ namespace test_platform.Models.Auth
     public class UserInfo
     {
         public string? Id { get; set; }
+        public DateTime dateCreated
+        {
+            get { return DateTime.Now; }
+        }
+        [Required]
+        public IFormFile CV { get; set; }
+        public string CVName { get; set; }
 
         [Required]
         [StringLength(50, MinimumLength = 3)]
@@ -29,17 +36,29 @@ namespace test_platform.Models.Auth
         public string PhoneNumber { get; set; }
 
         [Required]
-        public string DegreeClassification { get; set; }
+        public string City { get; set; }
+       
+        public string otherCity { get; set; }
 
         [Required]
         public string School { get; set; }
+
+       
+        public string otherSchool { get; set; }
 
         [Required]
         public string GraduationYear { get; set; }
 
         [Required]
-        public string Faculty { get; set; }
+        public string Major { get; set; }
+       
+        public string otherMajor { get; set; }
 
+        [Required]
+        public float GPA { get; set; }
+        [Required]
+        public int GPAScale { get; set; }
+        
         public string Password { get; set; }
         public string Role { get; set; }
 

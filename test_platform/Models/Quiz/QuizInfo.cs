@@ -10,13 +10,11 @@ namespace test_platform.Models.Quiz
         
         public int Id { get; set; }
 
-        [Required]
         public string Title { get; set; }
 
-        [Required]
-        public string Description { get; set; }
+        public string Description { get; set; }  
 
-        public List<MultipleChoice> QuestionArr { get; set; }
+        public Dictionary<string, MultipleChoice> QuestionArr { get; set; }
 
         public DateTime Created { get; set; } = DateTime.UtcNow;
         [Required]
@@ -24,7 +22,7 @@ namespace test_platform.Models.Quiz
         [Required]
         public DateTime End { get; set; }
 
-        public List<Participant> listParticipants { get; set; }
+        public Dictionary<string, Participant> listParticipants { get; set; }
     }
 
 

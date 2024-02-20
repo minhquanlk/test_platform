@@ -1,0 +1,354 @@
+﻿@model test_platform.Models.Quiz.QuizViewModel
+
+@{
+    ViewData["Title"] = "Test";
+    Layout = "~/Views/Shared/_LayoutSigned.cshtml";
+    
+}
+<link rel="stylesheet" href="~/css/customDetail.css" type="text/css">
+<div class="container">
+    <!-- Title and Top Buttons Start -->
+    <div class="page-title-container">
+        <div class="row">
+            
+            <!-- Title End -->
+            <!-- Xlarge Trigger -->
+            <!-- Top Buttons End -->
+        </div>
+    </div>
+    <!-- Title and Top Buttons End -->
+    <!-- Modal  Launch Xlarge-->
+    <div class="modal fade" id="xlExample" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title"><b>Instructions</b></h3>
+                </div>
+                @*<div class="modal-body">
+                    <img class="w-100 cover" src="~/assets/help/interface.png">
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Understood</button>
+                </div>*@
+                <div class="mb-2 wizard" id="wizardBasic">
+                    <div class="card-header border-0 pb-0 pt-0">
+                        <ul class="nav nav-tabs justify-content-center" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link text-center" href="#basicFirst" role="tab">
+                                     </a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link text-center" href="#basicSecond" role="tab">
+                                   </a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link text-center" href="#basicThird" role="tab">
+                                    </a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link text-center" href="#basicFourth" role="tab">
+                                </a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link text-center" href="#basicFifth" role="tab">
+                                </a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link text-center" href="#basicSixth" role="tab">
+                                </a>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <a class="nav-link text-center" href="#basicLast" role="tab"></a>
+                            </li>
+                        </ul> 
+                    </div>
+                    <div class="card-body">
+                        <div class="tab-content">
+                            <div class="tab-pane fade" id="basicFirst" role="tabpanel">
+                                <h5 class="card-title">Test interface</h5>
+                                <p class="card-text text-alternate mb-4">Consists of 2 parts: Information section and Question section.</p>
+                                <img class="w-100 cover" src="~/assets/help/interface.png">
+                            </div>
+                            <div class="tab-pane fade" id="basicSecond" role="tabpanel">
+                                <h5 class="card-title">Timer and Test information</h5>
+                                <p class="card-text text-alternate mb-4">The test will have a countdown timer.<b> Note that when the timer runs out, the test will be automatically completed even if you have not answered all the questions.</b></p>
+                                <img class="w-50 cover" src="~/assets/help/timer.png">
+                            </div>
+                            <div class="tab-pane fade" id="basicThird" role="tabpanel">
+                                <h5 class="card-title">Question navigation list</h5>
+                                <p class="card-text text-alternate mb-4">You can click on the question order to navigate to that specific question.</p>
+                                <img class="w-100 cover" src="~/assets/help/navigation.png">
+                            </div>
+                            <div class="tab-pane fade" id="basicFourth" role="tabpanel">
+                                <h5 class="card-title">Question selected</h5>
+                                <p class="card-text text-alternate mb-4">When a question is answered, the navigation list will be marked.</p>
+                                <img class="w-100 cover" src="~/assets/help/selected.png">
+                            </div>
+                            <div class="tab-pane fade" id="basicFifth" role="tabpanel">
+                                <h5 class="card-title">Question flagging</h5>
+                                <p class="card-text text-alternate mb-4">You can flag a question to mark it when you are unsure about the answer so that you can return to it later.</p>
+                                <img class="w-100 cover" src="~/assets/help/flag.png">
+                            </div>
+                            <div class="tab-pane fade" id="basicSixth" role="tabpanel">
+                                <h5 class="card-title">Completed interface</h5>
+                                <p class="card-text text-alternate mb-4">The interface after you have successfully submitted your exam.</p>
+                                <img class="w-100 cover" src="~/assets/help/completed.png">
+                            </div>
+                            <div class="tab-pane fade" id="basicLast" role="tabpanel">
+                                <div class="text-center mt-5">
+                                    <h2 class="card-title"><b>Wishing you success in completing your exam.</b></h2>
+                                    <p class="card-text text-alternate mb-4">You have <b> 60 minutes</b> to complete the<b> 40 questions</b> in the exam.</p>
+                                    <a href="#" class="btn btn-icon btn-icon-start btn-primary mb-4" type="button">
+                                        <span>Start</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card-footer text-center border-0 pt-1" style="background-color: unset !important;">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+
+                        <button class="btn btn-icon btn-icon-start btn-outline-primary btn-prev" type="button">
+                            <i data-acorn-icon="chevron-left"></i>
+                            <span>Back</span>
+                        </button>
+                        <button class="btn btn-icon btn-icon-end btn-outline-primary btn-next" type="button">
+                            <span>Next</span>
+                            <i data-acorn-icon="chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Content Start -->
+
+    <div class="row">
+        <!-- Left Side Start -->
+        
+        <div class="col-12 col-xxl-8 mb-5">
+            
+            <div class="card mb-5">
+                <div class="card-img-top overflow-hidden">
+                    <img class="w-100 cover" src="~/images/image-1.jpeg">
+                         
+                </div>
+                <div class="card-body">
+                    @Html.Raw(Model.QuizInfoList[0].Description)
+                </div>
+                
+            </div>
+            <!-- Preview End -->
+           
+        </div>
+        <!-- Left Side End -->
+        <!-- Right Side Start -->
+        <div class="col-12 col-xxl-4">
+            <!-- At a Glance Start -->
+            @if (Model.Answer != null)
+            {
+                if (Model.Answer.userID != "notSubmitted" && Model.Answer.userID != "continue")
+                {
+                    int minute = Model.Answer.During / 60;
+                    int second = Model.Answer.During % 60;
+                    <div class="card mb-2">
+                        <div class="card-body row g-0">
+                            <div class="col-12">
+                                <div class="cta-3">Status</div>
+                                <div class="mb-3 cta-3 text-primary"><b>Completed!</b></div>
+                                <div class="row g-0 align-items-center mb-3">
+                                    <div class="col-auto">
+                                        <div class="sw-3 sh-4 d-flex justify-content-center align-items-center">
+                                            <i data-acorn-icon="clock" class="text-primary"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col ps-3">
+                                        <div class="row g-0">
+                                            <div class="col">
+                                                <div class="sh-4 d-flex align-items-center lh-1-25">Starting time</div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <div class="sh-4 d-flex align-items-center text-alternate">@Model.Answer.Start.Hour : @Model.Answer.Start.Minute @Model.Answer.Start.DayOfWeek</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row g-0 align-items-center mb-3">
+                                    <div class="col-auto">
+                                        <div class="sw-3 sh-4 d-flex justify-content-center align-items-center">
+                                            <i data-acorn-icon="clock" class="text-primary"></i>
+                                        </div>
+                                    </div>
+                                    <div class="col ps-3">
+                                        <div class="row g-0">
+                                            <div class="col">
+                                                <div class="sh-4 d-flex align-items-center lh-1-25">Completion Time</div>
+                                            </div>
+                                            <div class="col-auto">
+                                                <div class="sh-4 d-flex align-items-center text-alternate">@minute.ToString()m @second.ToString()s</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a href="@Url.Action("QuizResult", "Test")" class="btn btn-icon btn-icon-start btn-outline-primary stretched-link sw-19 disabled">
+                                    <i data-acorn-icon="file-empty"></i>
+                                    <span>Specific Result</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            }
+            @if (Model.Answer != null && Model.Answer.userID == "notSubmitted")
+            {
+                int minute = Model.Answer.During / 60;
+                int second = Model.Answer.During % 60; 
+                <div class="card mb-2">
+                    <div class="card-body row g-0">
+                        <div class="col-12">
+                            <div class="cta-3">Status</div>
+                            <div class="mb-3 cta-3 text-primary"><b>Not Submitted!</b></div>
+                            <div class="row g-0 align-items-center mb-3">
+                                <div class="col-auto">
+                                    <div class="sw-3 sh-4 d-flex justify-content-center align-items-center">
+                                        <i data-acorn-icon="clock" class="text-primary"></i>
+                                    </div>
+                                </div>
+                                <div class="col ps-3">
+                                    <div class="row g-0">
+                                        <div class="col">
+                                            <div class="sh-4 d-flex align-items-center lh-1-25">Starting time</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="sh-4 d-flex align-items-center text-alternate">@Model.Answer.Start.Hour : @Model.Answer.Start.Minute @Model.Answer.Start.DayOfWeek</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row g-0 align-items-center mb-3">
+                                <div class="col-auto">
+                                    <div class="sw-3 sh-4 d-flex justify-content-center align-items-center">
+                                        <i data-acorn-icon="clock" class="text-primary"></i>
+                                    </div>
+                                </div>
+                                <div class="col ps-3">
+                                    <div class="row g-0">
+                                        <div class="col">
+                                            <div class="sh-4 d-flex align-items-center lh-1-25">Completion Time</div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <div class="sh-4 d-flex align-items-center text-alternate">@minute.ToString()m @second.ToString()s</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="@Url.Action("QuizResult", "Test")" class="btn btn-icon btn-icon-start btn-outline-primary stretched-link sw-19 disabled">
+                                <i data-acorn-icon="file-empty"></i>
+                                <span>Specific Result</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            }
+            <div class="card mb-5">
+                <div class="card-body">
+                    <div class="row g-0 align-items-center mb-3">
+                        <div class="col-auto">
+                            <div class="sw-3 sh-4 d-flex justify-content-center align-items-center">
+                                <i data-acorn-icon="clock" class="text-primary"></i>
+                            </div>
+                        </div>
+                        <div class="col ps-3">
+                            <div class="row g-0">
+                                <div class="col">
+                                    <div class="sh-4 d-flex align-items-center lh-1-25">Duration</div>
+                                </div>
+                                <div class="col-auto">                
+                                    <div class="sh-4 d-flex align-items-center text-alternate"><b>60 minutes</b></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-0 align-items-center mb-3">
+                        <div class="col-auto">
+                            <div class="sw-3 sh-4 d-flex justify-content-center align-items-center">
+                                <i data-acorn-icon="quiz" class="text-primary"></i>
+                            </div>
+                        </div>
+                        <div class="col ps-3">
+                            <div class="row g-0">
+                                <div class="col">
+                                    <div class="sh-4 d-flex align-items-center lh-1-25">Questions</div>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="sh-4 d-flex align-items-center text-alternate">40</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row g-0 align-items-center mb-3">
+                        <div class="col-auto">
+                            <div class="sw-3 sh-4 d-flex justify-content-center align-items-center">
+                                <i data-acorn-icon="calendar" class="text-primary"></i>
+                            </div>
+                        </div>
+                        <div class="col ps-3">
+                            <div class="row g-0">
+                                <div class="col">
+                                    <div class="sh-4 d-flex align-items-center lh-1-25">Release</div>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="sh-4 d-flex align-items-center text-alternate">21.11.2023</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row g-0 align-items-center mb-0">
+                        <div class="col-auto">
+                            <div class="sw-3 sh-4 d-flex justify-content-center align-items-center">
+                                <i data-acorn-icon="user" class="text-primary"></i>
+                            </div>
+                        </div>
+                        <div class="col ps-3">
+                            <div class="row g-0">
+                                <div class="col">
+                                    <div class="sh-4 d-flex align-items-center lh-1-25">Close</div>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="sh-4 d-flex align-items-center text-alternate">28.11.2023</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- At a Glance End -->
+            @if (Model.Answer == null)
+            {
+                
+                <button disabled class="d-flex align-items-center justify-content-center btn btn-primary btn-icon btn-icon-start w-100 btn-start" data-bs-toggle="modal" data-bs-target="#xlExample">
+                    <i data-acorn-icon="chevron-right"></i>
+                    <span>The test is closed!</span>
+                </button>
+            }
+            else
+            {
+                if (Model.Answer.userID == "continue")
+                {
+                    <button disabled class="d-flex align-items-center justify-content-center btn btn-primary btn-icon btn-icon-start w-100 btn-start" data-bs-toggle="modal" data-bs-target="#xlExample">
+                        <i data-acorn-icon="chevron-right"></i>
+                        <span>The test is closed!</span>
+                    </button>
+                }
+            }
+        </div>
+        <!-- Right Side End -->
+    </div>
+    <!-- Content End -->
+</div>

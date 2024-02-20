@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - The Next Masan Talents</title>
+    @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/test_platform.styles.css" asp-append-version="true" />*@
+
+  
+    
+    <!-- Fonts -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700%7CMontserrat:200,300,400,500,700,800,900&display=swap">
+    <!-- Theme CSS -->
+    <link href="~/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
+    
+    <link rel="stylesheet" href="~/assets/css/apply-custom.css">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WWJSMPXW5T"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-WWJSMPXW5T');
+    </script>
+    @RenderSection("styles", required: false)
+   
+</head>
+<body class="layout-wide">
+   
+    <div id="top"></div>
+   
+        <!-- Site navigation -->
+        
+        <!-- Brand -->
+        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+            <img src="~/assets/images/MSC_Logo_White.png" class="navbar-brand-img" alt="">
+        </a>
+
+       
+        @*<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">test_platform</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Auth" asp-action="SignIn">Login</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>*@
+    
+   
+    
+    <!-- Back To Top Button -->
+   
+   
+        
+    @RenderBody()
+        
+   
+
+    
+
+  
+
+    <!-- JAVASCRIPT -->
+    <script src="~/assets/dist/jquery.min.js"></script>
+    <script src="~/assets/dist/bootstrap.min.js"></script>
+    <script src="~/assets/dist/jquery.countdown.min.js"></script>
+    <script src="~/assets/dist/jquery.fullpage.min.js"></script>
+    <script src="~/assets/dist/granim.min.js"></script>
+    <script src="~/assets/dist/jquery.waypoints.min.js"></script>
+    <script src="~/assets/dist/popper.min.js"></script>
+    <script src="~/assets/dist/scrolloverflow.min.js"></script>
+    <script src="~/assets/libs/slick/slick.min.js"></script>
+    <script src="~/assets/libs/vegas/vegas.min.js"></script>
+    <script src="~/assets/js/pages/form-validation.init.js"></script>
+    <script src="~/assets/libs/parsleyjs/parsley.min.js"></script>
+    @RenderSection("scripts", required: false)
+
+    <!-- App js -->
+    <script src="~/assets/js/main.js"></script>
+</body>
+</html>

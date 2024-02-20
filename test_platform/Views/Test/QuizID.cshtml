@@ -1,0 +1,428 @@
+﻿@model test_platform.Models.Quiz.QuizViewModel
+
+@{
+    ViewData["Title"] = "Test";
+    Layout = "~/Views/Shared/_LayoutSigned.cshtml";
+
+}
+<link rel="stylesheet" href="~/css/nonScroll.css" type="text/css">
+<!-- Content Start -->
+<input type="hidden" id="viewportHeight" name="viewportHeight" />
+<div class="progress mb-4 mt-2">
+    <div class="progress-bar progress-bar-striped" role="progressbar"></div>
+</div>
+<div class="container quiz-container">
+    
+    <div class="row g-5"> 
+        <div class="col-lg-4 col-xxl-3">
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabelDefault" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h3 class="modal-title" id="exampleModalLabelDefault"><b>Confirm submission!</b></h3>
+                            <i data-acorn-icon="form-check" class="text-primary"></i>
+                        </div>
+                        <div class="modal-body" style="font-size: 16px;">Are you sure you want to submit the assignment?
+                            <br />
+                            <p id="remind-success" style="font-size: 16px;"></p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Go back...</button>
+                            <button type="button" class="btn btn-primary btn-submit" id="submit-test">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+           
+            <div class="card">
+               
+                <div class="card-body">
+                    
+                    <div class="row g-0 align-items-center mb-1">
+                        <div class="col-auto">
+                            <div class="sw-3 sh-4 d-flex justify-content-center align-items-center">
+                                <i data-acorn-icon="form-check" class="text-primary"></i>
+                            </div>
+                        </div>
+                        <div class="col ps-3">
+                            <div class="row g-0">
+                                <div class="col">
+                                    <div class="text-alternate sh-4 d-flex align-items-center lh-1-25">Questions</div>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="sh-4 d-flex align-items-center text-alternate">@Model.QuizInfoList[0].QuestionArr.Count</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-0 align-items-center mb-1">
+                        <div class="col-auto">
+                            <div class="sw-3 sh-4 d-flex justify-content-center align-items-center">
+                                <i data-acorn-icon="clock" class="text-primary"></i>
+                            </div>
+                        </div>
+                        <div class="col ps-3">
+                            <div class="row g-0">
+                                <div class="col">
+                                    <div class="text-alternate sh-4 d-flex align-items-center lh-1-25">Time</div>
+                                </div>
+                                <div class="col-auto">
+                                    <div class="sh-4 d-flex align-items-center text-alternate">60m</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-body">
+                    <div id="timer" minutes=@Model.Minutes seconds=@Model.Seconds>
+                        <div class="row gx-5">
+                            <div class="col-auto">
+                                <div id="minutes" class="display-5 text-primary mb-1"><b>00</b></div>
+                                <div>Minutes</div>
+                            </div>
+                            <div class="col-auto">
+                                <div id="seconds" class="display-5 text-primary mb-1"><b>00</b></div>
+                                <div>Seconds</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-cols-6" id="navQues">    
+                @{
+                    int a = 1;
+                }
+                @foreach (var item in Model.QuizInfoList[0].QuestionArr.ToList())
+                {
+                    
+                    string target = "#" + item.Key;
+                    <a class="list-ques" href=@target>
+                        <div class="card align-items-center">
+                            <div class="card-body">
+                                @a
+                            </div>  
+                        </div>
+                    </a>
+                    a++;
+                }
+
+                
+
+            </div>
+            <div class="row mt-3">
+                <div class="col-12 text-center">
+                    <button class="btn btn-submit w-100 waves-effect waves-light" id="btnSubmit" data-bs-toggle="modal" data-bs-target="#exampleModal" onclick="countQues()">
+                        <span>Submit</span>
+                        <i data-acorn-icon="check"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8 col-xxl-9 question-div">
+            @{
+                int i = 0;
+                List<char> chr = new List<char>() {'0', 'A', 'B', 'C', 'D', 'E'};
+            }
+            <form asp-action="Submit" id="testForm">
+                <input type="text" value=@Model.QuizInfoList[0].Id.ToString() asp-for=@Model.Answer.QuizID class="hidden" />
+                <input type="text" value=@Model.userID asp-for=@Model.Answer.userID class="hidden" />
+
+                @foreach (var item in Model.QuizInfoList[0].QuestionArr.ToList())
+                {
+                    
+                    int y = 0;
+                    i += 1;
+                    string name = item.Key;
+                    string type = item.Value.Type;
+                    string nameid = "id" + name;
+                    string pathQuesPic = "/" + item.Value.QuestionPic;
+                    <input type="radio" checked value="noChoice" asp-for=@Model.Answer.UserChoices[name]["ans"] class="hidden" />
+                    if (i == 31)
+                    {
+                        <div class="card mb-3 question-scene" id="scenerio">
+                            <div class="card-body">
+                                <div class="d-flex flex-row align-content-center align-items-start mb-4">
+                                    <div class="sw-5 me-4">
+                                        <div class="border border-1 border-primary bg-primary rounded-xl sw-5 sh-5 text-white d-flex justify-content-center align-items-center">S</div>
+                                    </div>
+                                    <div class="heading mb-0 text-primary flex-grow-1">
+                                        
+                                        <div class="border-ques d-flex">
+                                            <p class="quesPic">@Html.Raw(item.Value.QuestionPic)</p>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="d-flex filled flag custom-control-container btn-foreground flex-row align-content-center align-items-center position-relative mb-3" onclick="flaggerFunc()">
+                                        <input type="checkbox" class="flag-btn hidden" id=@nameid name=@nameid />
+                                        <i data-acorn-icon="flag" style="position: unset !important;"></i>
+                                        <label class="mb-0 text-alternate stretched-link" for=@nameid>
+                                            Flag
+                                        </label>
+                                    </div>
+                                </div>
+
+                                
+                            </div>
+                        </div>
+                    }
+                <div class="card mb-3 question" id=@name>
+                    <div class="card-body">
+                        <div class="d-flex flex-row align-content-center align-items-start mb-4">
+                            <div class="sw-5 me-4">
+                                <div class="border border-1 border-primary bg-primary rounded-xl sw-5 sh-5 text-white d-flex justify-content-center align-items-center">@i</div>
+                            </div>
+                            <div class="heading mb-0 text-primary flex-grow-1">
+                                @if (item.Value.Topic != "ProblemSolving" && item.Value.Topic != "CriticalThinking")
+                                {
+                                        <img src=@pathQuesPic class="mb-1" style="max-width: 100%; pointer-events: none;">
+                                }
+                                    else if (item.Value.Topic == "CriticalThinking")
+                                {
+                                    <div class="border-ques d-flex">
+                                        <p class="quesPic">@Html.Raw(item.Value.QuestionPic)</p>
+                                    </div>
+                                }
+                                <p class="questionTest mt-3">@Html.Raw(item.Value.QuestionText)</p>
+                                    
+                            </div>
+                            <div class="d-flex filled flag custom-control-container btn-foreground flex-row align-content-center align-items-center position-relative mb-3" onclick="flaggerFunc()">
+                                <input type="checkbox" class="flag-btn hidden" id=@nameid name=@nameid />
+                                <i data-acorn-icon="flag" style="position: unset !important;"></i>
+                                    <label class="mb-0 text-alternate stretched-link" for=@nameid>
+                                    Flag
+                                </label>
+                            </div>
+                        </div>
+                        
+                        @foreach (var answer in item.Value.Choices.ToList())
+                        {
+                            y += 1;
+                            string id = name + "_" + answer.Key;
+                            string divId = id + "div";
+                            string ans = "ans" + y.ToString();
+                            @if (item.Value.Topic == "Logical")
+                            {
+                                string pathAnsPic = "/" + item.Value.Choices["choice1"];
+                                <img src=@pathAnsPic class="mb-1 picAnswer" style="width: 70%;pointer-events: none;">
+                                <div class="radio-container">
+                                    @for (int col = 0; col < 4; col++)
+                                    {
+                                        <ul style="padding: 0; margin: 0;">
+                                            @for (int ra = 1; ra < 4; ra++)
+                                            {
+                                                string idra = "radio" + (ra + 3 * col);
+                                                    <!-- 12 ô vuông radio -->
+                                                int val = (ra - 1) * 4 + col + 1;
+                                                int pos = ra + 3 * col;
+                                                <li class="radio-button-pic" onclick="picChoice('@name', @pos)">
+                                                    <input type="radio" asp-for=@Model.Answer.UserChoices[name]["ans"] id=@idra value=@val>
+                                                    <label for=@idra></label>
+                                                </li>
+                                            }
+                                
+                                    
+                                        </ul>
+                                    }
+                                </div>
+                                
+                            }
+                            else
+                            {
+                                <div class="d-flex filled custom-control-container btn-foreground flex-row align-content-center align-items-center position-relative mb-3 question" id=@divId onclick="checkedFunc()">
+                                    <div class="sw-5 me-4 d-flex justify-content-center flex-grow-0 flex-shrink-0">
+                                        <div class="d-flex justify-content-center align-items-center">
+                                        
+                                            @if (type == "single")  {
+                                                <input type="radio" class="btn-check" id=@id value=@answer.Value asp-for=@Model.Answer.UserChoices[name]["ans"] />
+                                                <label class="btn btn-foreground hover-outline sw-4 sh-4 p-0 rounded-xl d-flex justify-content-center align-items-center stretched-link mb-0 shadow-light"
+                                                            for=@id>
+                                                        @chr[y]
+                                                </label>
+                                            } 
+                                            else
+                                            {
+                                                <input type="checkbox" class="btn-check check-box" id=@id value=@answer.Value asp-for=@Model.Answer.UserChoices[name][ans] />
+                                                    <label class="btn btn-foreground hover-outline sw-4 sh-4 p-0 rounded-sm d-flex justify-content-center align-items-center stretched-link mb-0 shadow-light"
+                                                            for=@id>
+                                                        @chr[y]
+                                                </label>
+                                            }
+                                        
+                                        </div>
+                                    </div>
+                                    <div class="mb-0 text-alternate font-weight-semi-bold">
+                                        @answer.Value
+                                    </div>
+                                </div>
+                            }
+                            
+                        }
+                        @if (type != "single")
+                        {
+                            <div class="mb-0 text-alternate">
+                                <i>* Multiple Answers</i>
+                            </div>
+                        }
+                    </div>
+                </div>
+                
+                }
+            
+
+                
+            </form>
+        </div>
+    </div>
+<!-- Content End -->
+</div>
+
+<script>
+    const progress = document.querySelector('.progress-bar-striped');
+    const radios = document.querySelectorAll('.btn-check');
+    const parents = document.querySelectorAll('.filled.question');
+    const flagParents = document.querySelectorAll('.filled.flag');
+    const cards = document.querySelectorAll('.card.question');
+    const targetList = document.querySelectorAll('.list-ques .card');
+    const flagList = document.querySelectorAll('.flag-btn');
+    const numQues = cards.length;
+    
+    function checkedFunc() {
+        radios.forEach((radio, index) => {
+            
+            if (radio.checked) {
+                parents[index].classList.add('active');
+            } else {
+                parents[index].classList.remove('active');
+            }
+        });
+        cards.forEach((card, index) => {
+            var isCheck = false;
+            const radioButtons = card.querySelectorAll('.btn-check');
+
+ 
+            radioButtons.forEach(radio => {
+                if (radio.checked) {
+                    isCheck = true;
+                } 
+            });
+            if (isCheck) {
+                card.classList.add('shadow-green');
+                targetList[index].classList.add("choosed");
+            } 
+            @*else {
+                card.classList.remove('shadow-green');
+                targetList[index].classList.remove("choosed");
+            }*@
+        });
+        var cardsgreen = document.querySelectorAll('.card.shadow-green');
+        var progressValue = cardsgreen.length/numQues*100;
+        progress.style.width = progressValue + "%";
+    }
+    function flaggerFunc() {
+        flagList.forEach((flag, index) => {
+
+            if (flag.checked) {
+                flagParents[index].classList.add('flagging');
+            } else {
+                flagParents[index].classList.remove('flagging');
+            }
+        });
+        cards.forEach((card, index) => {
+            
+            if (flagList[index].checked) {
+                card.classList.add('shadow-red');
+                targetList[index].classList.add("flagging");
+            } else {
+                card.classList.remove('shadow-red');
+                targetList[index].classList.remove("flagging");
+            }
+
+
+            
+        });
+    }
+    function picChoice(name, pos) {
+        const picChoices = document.getElementById(name);
+        const choices = picChoices.querySelectorAll('.radio-button-pic');
+        choices.forEach((choice, index) => {
+            if (pos == index + 1)
+            {
+                choice.classList.add("pic-choice");
+                choice.querySelector('input').checked = true;
+            }
+            else
+            {
+                choice.classList.remove("pic-choice");
+            }
+            
+        });
+        cards.forEach((card, index) => {
+            
+            
+            if (card == picChoices) {
+                card.classList.add('shadow-green');
+                targetList[index].classList.add("choosed");
+            } 
+        });
+    }
+    function countQues() {
+        var count = 0;
+        var noChoice = 0;
+        targetList.forEach((target, index) => {
+            if(target.classList.contains("choosed"))
+            {
+                count++; 
+            }; 
+        });
+        noChoice = 40 - count;
+        var text = "You have <b>" + noChoice.toString() + "</b> unfinished questions remaining!";
+        const remind = document.getElementById('remind-success');
+        remind.innerHTML = text;
+    }
+    document.getElementById("submit-test").addEventListener("click", function () {
+        // Xử lý form theo ý muốn
+        // Ví dụ: Gửi form hoặc thực hiện các thao tác khác
+        document.getElementById("testForm").submit();
+    });
+    
+    var heightWin = window.innerHeight || document.documentElement.clientHeight || document.body.clientHeight;
+    if (heightWin < 860)
+    {
+        document.getElementById('navQues').classList.remove("row-cols-6");
+        document.getElementById('navQues').classList.add("row-cols-8");
+    }
+    
+    window.onload = function () {
+        var imageElementAnswer = document.querySelectorAll('.picAnswer');
+        var radioElementAnswer = document.querySelectorAll('.radio-container');
+        var imageWidth = imageElementAnswer[0].clientWidth;
+        var imageHeight = imageElementAnswer[0].clientHeight;
+        radioElementAnswer.forEach((radioContainer, index) => {
+            radioContainer.style.marginTop = -imageHeight + 'px';
+            radioContainer.querySelectorAll('.radio-button-pic').forEach((radio, index) => {
+                radio.style.height = (imageHeight - 5) / 3 + 'px';
+            });
+
+        });
+    };
+    
+    window.addEventListener('resize', function () {
+        var imageElementAnswer = document.querySelectorAll('.picAnswer');
+        var radioElementAnswer = document.querySelectorAll('.radio-container');
+        var imageWidth = imageElementAnswer[0].clientWidth;
+        var imageHeight = imageElementAnswer[0].clientHeight;
+        radioElementAnswer.forEach((radioContainer, index) => {
+            radioContainer.style.marginTop = -imageHeight + 'px';
+            radioContainer.querySelectorAll('.radio-button-pic').forEach((radio, index) => {
+                radio.style.height = (imageHeight - 5) / 3 + 'px';
+            });
+
+        });
+    });
+</script>
+<script src="~/js/vendor/countdown.min.js"></script>
+<script src="~/js/apps/quiz.detail.js"></script>

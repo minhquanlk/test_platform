@@ -1,7 +1,8 @@
 ﻿@inject test_platform.Services.IUserContext UserContext
 
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-radius="rounded" data-color="light-blue" data-placement="horizontal">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,81 +10,83 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/test_platform.styles.css" asp-append-version="true" />
-
+    <!-- DataTables -->
+    <link href="~/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/libs/datatables.net-buttons-bs4/css/buttons.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/libs/datatables.net-select-bs4/css/select.bootstrap4.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/assets/libs/admin-resources/rwd-table/rwd-table.min.css" rel="stylesheet" type="text/css" />
     <!-- Bootstrap Css -->
     <link href="~/assets/css/bootstrap.min.css" id="bootstrap-style" rel="stylesheet" type="text/css" />
     <!-- Icons Css -->
     <link href="~/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
-    <!-- App Css-->
     <link href="~/assets/css/app.min.css" id="app-style" rel="stylesheet" type="text/css" />
+
+    <script src="/icon/acorn-icons.js"></script>
+    <script src="/icon/acorn-icons-interface.js"></script>
+    <script src="/icon/acorn-icons-learning.js"></script>
+    <link rel="stylesheet" href="~/css/styles.css" type="text/css">
+    <link rel="stylesheet" href="~/css/main.css" type="text/css">
 
     @RenderSection("styles", required: false)
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">test_platform</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-    
-                       
-                            
-                        @if (UserContext.UserWithRole.Role == "User") 
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Auth" asp-action="SignIn">
-                                    @UserContext.UserWithRole.User.FullName
-                                </a>
-                            </li>
-                        } 
-                        else 
-                        {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Auth" asp-action="SignIn">
-                                    Admin
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="UserList">
-                                    Danh sách ứng viên
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Admin" asp-action="QuizList">
-                                    Danh sách bài thi
-                                </a>
-                            </li>
-                        }
-                            
-                       
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Auth" asp-action="SignOut">Đăng xuất</a>
-                        </li>
-                       
-                    </ul>
+        <div id="nav" class="nav-container d-flex">
+            <div class="nav-content d-flex justify-content-between">
+            <!-- Logo Start -->
+            <div class="logo position-relative">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
+                    <img src="~/assets/images/MSC_Logo.png" class="navbar-brand-img" alt="" style="width: 8vw">
+                </a>
+            </div>
+            <!-- Logo End -->
+            
+            <!-- User Menu Start -->
+            <div class="d-flex">
+                <div class="dropdown d-inline-block user-dropdown">
+                    <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                            data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img class="rounded-circle header-profile-user" src="~/assets/images/user-blank.png"
+                             alt="Header Avatar">
+                        <span class="d-none d-xl-inline-block ms-1 text-dark">@UserContext.UserWithRole.User.FullName</span>
+                        <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
+                    </button>
+                    <div class="dropdown-menu dropdown-menu-end">
+                        
+
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-danger" href=@Url.Action("SignOut", "Auth")><i class="ri-shut-down-line align-middle me-1 text-danger"></i> Logout</a>
+                    </div>
                 </div>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        
-            @RenderBody()
-        
-    </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2023 - test_platform - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            
+            <!-- Menu End -->
+            <!-- Mobile Buttons Start -->
+            <div class="mobile-buttons-container">
+                <!-- Scrollspy Mobile Button Start -->
+                <a href="#" id="scrollSpyButton" class="spy-button" data-bs-toggle="dropdown">
+                    <i data-acorn-icon="menu-dropdown"></i>
+                </a>
+                <!-- Scrollspy Mobile Button End -->
+                <!-- Scrollspy Mobile Dropdown Start -->
+                <div class="dropdown-menu dropdown-menu-end" id="scrollSpyDropdown"></div>
+                <!-- Scrollspy Mobile Dropdown End -->
+                <!-- Menu Button Start -->
+                <a href="#" id="mobileMenuButton" class="menu-button">
+                    <i data-acorn-icon="menu"></i>
+                </a>
+                <!-- Menu Button End -->
+            </div>
+            <!-- Mobile Buttons End -->
         </div>
-    </footer>
+        <div class="nav-shadow"></div>
+        </div>
+    </header>
+    <main>
+    @RenderBody()
+    </main>
+  
+ 
     <!-- JAVASCRIPT -->
     <script src="~/assets/libs/jquery/jquery.min.js"></script>
     <script src="~/assets/libs/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -91,9 +94,47 @@
     <script src="~/assets/libs/simplebar/simplebar.min.js"></script>
     <script src="~/assets/libs/node-waves/waves.min.js"></script>
 
+    <!-- Required datatable js -->
+    <script src="~/assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="~/assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="~/js/vendor/list.js"></script>
+
+    <!-- Buttons examples -->
+    <script src="~/assets/libs/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="~/assets/libs/datatables.net-buttons-bs4/js/buttons.bootstrap4.min.js"></script>
+    <script src="~/assets/libs/jszip/jszip.min.js"></script>
+    <script src="~/assets/libs/pdfmake/build/pdfmake.min.js"></script>
+    <script src="~/assets/libs/pdfmake/build/vfs_fonts.js"></script>
+    <script src="~/assets/libs/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="~/assets/libs/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="~/assets/libs/datatables.net-buttons/js/buttons.colVis.min.js"></script>
+
+    <script src="~/assets/libs/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="~/assets/libs/datatables.net-select/js/dataTables.select.min.js"></script>
+
+    <!-- Responsive examples -->
+    <script src="~/assets/libs/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="~/assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js"></script>
+
+    <!-- Datatable init js -->
+    <script src="~/assets/js/pages/datatables.init.js"></script>
+    <!-- Responsive Table js -->
+    <script src="~/assets/libs/admin-resources/rwd-table/rwd-table.min.js"></script>
+
+    <!-- Init js -->
+    <script src="~/assets/js/pages/table-responsive.init.js"></script>
+    <script src="~/js/apps/contacts.js"></script>
+    
+
+    <!-- Apps js -->
+    <script src="~/js/cs/checkall.js"></script>
+    <script src="~/js/cs/wizard.js"></script>
+    <script src="~/js/vendor/wizards.js"></script>
     @RenderSection("scripts", required: false)
 
     <!-- App js -->
     <script src="~/assets/js/main.js"></script>
+    <script src="~/js/scripts.js"></script>
+    <script src="~/js/common.js"></script>
 </body>
 </html>

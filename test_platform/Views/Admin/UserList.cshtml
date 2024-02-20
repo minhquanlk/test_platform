@@ -1,68 +1,132 @@
-﻿@model IEnumerable<test_platform.Models.Auth.UserInfo>
+﻿@model IEnumerable<test_platform.Models.Auth.UserList>
 
 @{
     ViewData["Title"] = "UserList";
-    Layout = "~/Views/Shared/_LayoutSigned.cshtml";
+    Layout = "~/Views/Shared/_LayoutComplete.cshtml";
 
 }
+
 <div class="text-center">
-    <h1 class="display-4">USER LIST</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-    <table class="table mt-4">
-        <tr>
-            <th>
-                STT
-            </th>
-            <th>
-                Họ và tên
-            </th>
-            <th>
-                Giới tính
-            </th>
-            <th>
-                Email
-            </th>
-            <th>
-                Số điện thoại
-            </th>
-            <th>
-                Ngày sinh
-            </th>
-            <th></th>
-        </tr>
-        @{
-            int stt = 1; 
-        }
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @stt
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FullName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Gender)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Email)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.PhoneNumber)
-                </td>
-                <td>
-                    @item.BirthDate.ToString("dd/MM/yyyy")
-                </td>
+    <h1 class="display-4">CANDIDATE REGISTRATION LIST</h1>
+    <div class="row">
+        <div class="col-12">
+            <div class="table-rep-plugin">
+                <div class="table-responsive mb-0" data-pattern="priority-columns">
+            <table id="datatable-buttons" class="table table-striped table-bordered" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                <thead>
+                    <tr>
+                        <th>
+                            STT
+                        </th>
+                        <th>
+                            Time
+                        </th>
+                        <th>
+                            Họ và tên
+                        </th>
+                        <th>
+                            Giới tính
+                        </th>
+                        <th>
+                            Email
+                        </th>
+                        <th>
+                            Password
+                        </th>
+                        <th>
+                            Số điện thoại
+                        </th>
+                        <th>
+                            Ngày sinh
+                        </th>
+                        <th>
+                            City
+                        </th>
+                        <th>
+                            Trường
+                        </th>
+                        <th>
+                            Ngành học
+                        </th>
+                        <th>
+                            Tốt nghiệp
+                        </th>
+                        <th>
+                            GPA
+                        </th>
+                        <th>
+                            Thang điểm
+                        </th>
+                        <th>
+                            Link CV
+                        </th>
 
-                <td>
-                    @Html.ActionLink("Edit", "Edit", new {  id=item.Id  }) |
+                    </tr>
+                </thead>
 
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
-                </td>
-            </tr>
-        }
-    </table>
+                @{
+                    int stt = 1; 
+                }
+                <tbody>
+                @foreach (var item in Model)
+                {
+                    string linkCV = "https://www.thenextmasantalents.com/readCV/ViewPDF/" + item.CVName.Replace(" ", "%20");
+                    <tr>
+                        <td>
+                            @stt
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.dateCreated)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FullName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Gender)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Password)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.PhoneNumber)
+                        </td>
+                        <td>
+                            @item.BirthDate.ToString("dd/MM/yyyy")
+                        </td>
+
+                        <td>
+                            @item.City
+                        </td>
+                        <td>
+                            @item.School
+                        </td>
+                        <td>
+                            @item.Major
+                        </td>
+                        <td>
+                            @item.GraduationYear
+                        </td>
+                        <td>
+                             @item.GPA
+                        </td>
+                        <td>
+                            @item.GPAScale
+                        </td>
+                        <td>
+                            <a href=@linkCV>@linkCV</a>
+                        </td>
+                    </tr>
+                    stt += 1;
+                }
+                </tbody>
+            </table>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 

@@ -7,524 +7,365 @@
 <!-- Fullpage content -->
 <div class="ln-fullpage" data-navigation="true">
     <!-- Section - Home -->
-    <section class="ln-section d-flex flex-column home-title" data-anchor="home" data-tooltip="Home">
+    <section class="ln-section d-flex flex-column home-title" data-anchor="home">
                     
         <div class="overlay overlay-advanced">
-            <div class="overlay-inner bg-image-holder bg-cover">
-            <img src="~/assets/images/main-background.png" alt="background">
+            <div class="overlay-inner overlay-video">
+                <video autoplay loop muted playsinline playsInline id="myVideoId">
+                    <source src="~/assets/images/bg-main.mp4" type="video/mp4">
+                </video>
             </div>
         </div>
-        <img class="title-home" src="~/assets/images/main-titile.png" alt="">
+        <img class="title-home block-event" src="~/assets/images/main-title-nohand.png" alt="">
+        <a href="@Url.Action("Apply", "Auth")">
 
-        <img class="title-home apply-btn apply-btn-1 animated" data-animation="fadeInUp" data-animation-delay="300" src="~/assets/images/main-button-1.png" alt="">
-        <img class="title-home apply-btn apply-btn-2 animated" data-animation="fadeInUp" data-animation-delay="300" id="apply-btn-2" src="~/assets/images/main-button-2.png" alt="">
-        <p class="timeline text-center" data-animation="fadeInUp" data-animation-delay="300">15/10 - 03/11/2023</p>
-        <img class="man-home animated" data-animation="rotateIn" data-animation-delay="100" src="~/assets/images/man-home.png" alt="">
-        <img class="girl-home animated" data-animation="rotateIn" data-animation-delay="100" src="~/assets/images/girl-home.png" alt="">
-    </section>
-    
-    <!-- Section - Our mission -->
-    <section class="ln-section d-xl-flex flex-column justify-content-center" data-anchor="our-mission" data-tooltip="Our mission" data-ui="dark" data-navbar="navbar-light">
-        <div class="overlay overlay-advanced">
-            <div class="overlay-inner bg-light bg-cover">
-            </div>
-        </div>
-        <div class="overlay overlay-advanced">
-            <div class="overlay-inner bg-image-holder bg-cover">
-                <img src="~/assets/images/bottle-background.png" alt="background">
+        <img  class="title-home apply-btn apply-btn-1" src="~/assets/images/main-button-1.png" alt="">
+        <img  class="title-home apply-btn apply-btn-2" id="apply-btn-2" src="~/assets/images/main-button-2.png" alt="">
+        </a>
+        <p class="timeline text-center">15/10/2023 - 23/11/2023</p>
+        <img class="man-home block-event animated" data-animation="rotateIn" src="~/assets/images/man-home.png" alt="">
+        <img class="girl-home block-event animated" data-animation="rotateIn" src="~/assets/images/girl-home.png" alt="">
+        <div class="timeline-position">
+            <div class="blur-image timeline-container">
+                <img class="training-session day-1" src="~/assets/images/openapplication.png" alt="">
+                <i class="fas fa-hand-point-down hidden" style="color: #ffffff;"></i>
+                @*<a class="training-register" target="_blank" href="https://docs.google.com/forms/d/e/1FAIpQLSfHjvb7vCSGK_xuxi2WjKiNK-N3jqkBdmbbDbh8QPSEekOzFQ/viewform?zarsrc=410&fbclid=IwAR34K3OMILIkhxRvXJLi-ATtCzf7-9-8SY56rhyaC89gu6h4VNfV57oE_BE">
+                    <img class="training-session day-2" src="~/assets/images/opendayoff.png" alt="">
+                    <p class="training-session-text text-1 hidden"><u>Register Now</u></p>
+                </a>*@
+               
+                    <img class="training-session day-1" src="~/assets/images/opendayoff.png" alt="">
+                    <p class="training-session-text text-1 hidden"><u>Register Now</u></p>
+                
+                    <img class="training-session day-1" src="~/assets/images/careertalk1-u.png" alt="">
+                    <p class="training-session-text text-2 hidden"><u>Register Now</u></p>
+               
+                    <img class="training-session day-1" src="~/assets/images/careertalk2-u.png" alt="">
+                    <p class="training-session-text text-3 hidden"><u>Register Now</u></p>
+               
+                <img class="training-session day-1" src="~/assets/images/closeapplication.png" alt="">
+                <p class="training-session-title">Training Session before program</p>
             </div>
         </div>
         
-        <p class="title-2 text-center" data-animation="fadeInUp" data-animation-delay="300">MESSAGE FROM OUR TALENTS</p>
-        <div class="row row-cols-6 justify-content-center message-list" id="message-list"  data-animation="fadeInUp" data-animation-delay="300">
-            <div class="message d-flex flex-column align-items-center ml-3 mr-3" onclick="toggleVisibility(0)"> 
-                <img class="person-message person-1" src="~/assets/images/girl-home.png" alt="">
-                <div class="title-group dropup text-center">
-                    <p class="title-message">Online Appication 1</p>
-                    <img class="title-border" src="~/assets/images/text-border-orange.png" alt="">
+        
+    </section>
+
+     <!-- Section - About -->
+    <section class="ln-section about-section" data-anchor="our-mission" data-tooltip="About" data-ui="dark" data-navbar="navbar-light">
+        <div class="overlay overlay-advanced">
+            <div class="overlay-inner bg-image-holder bg-cover">
+                <img class="bg-about" src="~/assets/images/background-about.png" alt="background">
+            </div>
+        </div>
+        <div class="title-about-border">
+            <p class="title-about-text">From a fresh graduate to a successful R&D Talents within 2 years</p>
+        </div>
+        <img class="title-about block-event" src="~/assets/images/title-about.png" alt="">
+        <div class="about-group dropup text-right" onclick="aboutSection(1)">
+            <p class="outline-about outline-about-1 text-left">About Masan</p>
+            <img class="border-text border-text-1" src="~/assets/images/border-text-focus.png" alt="">
+        </div>
+        <div class="about-group about-2 dropup text-right" onclick="aboutSection(2)">
+            <p class="outline-about outline-about-1 text-left">Our R&D team</p>
+            <img class="border-text border-text-2" src="~/assets/images/border-text-normal.png" alt="">
+        </div>
+        <div class="about-group about-3 dropup text-right" onclick="aboutSection(3)">
+            <p class="outline-about outline-about-1 text-left">The next Masan<br /> R&D Talents 2023</p>
+            <img class="border-text border-text-3" src="~/assets/images/border-text-normal.png" alt="">
+        </div>
+        <img class="border-paragraph border-1 block-event" src="~/assets/images/border-paragraph.png" alt="">
+        <img class="border-paragraph border-2 block-event hidden" src="~/assets/images/border-paragraph-2.png" alt="">
+        <img class="border-paragraph border-3 block-event hidden" src="~/assets/images/border-paragraph-3.png" alt="">
+        @*<div class="d-flex flex-column title-about-row align-items-center">
+            <div class="row align-items-center">
+                <div class="title-about-border">
+                    <p class="title-about-text">From a fresh graduate to a successful R&D assistant manager within 3 years</p>
+                </div>
+                <img class="title-about" src="~/assets/images/title-about.png" alt="">
+            </div>
+            <div class="row justify-content-center">
+                <div class="d-flex flex-column col-4 align-items-end justify-content-center">
+                    <div class="about-group dropup text-right" onclick="aboutSection(1)">
+                        <p class="outline-about outline-about-1 text-left">About Masan</p>
+                        <img class="border-text border-text-1" src="~/assets/images/border-text-focus.png" alt="">
+                    </div>
+                    <div class="mt-3 about-group dropup text-right" onclick="aboutSection(2)">
+                        <p class="outline-about outline-about-1 text-left">Our R&D team</p>
+                        <img class="border-text border-text-2" src="~/assets/images/border-text-normal.png" alt="">
+                    </div>
+                    <div class="mt-3 about-group dropup text-right" onclick="aboutSection(3)">
+                        <p class="outline-about outline-about-1 text-left">The next Masan<br /> R&D Talents 2023</p>
+                        <img class="border-text border-text-3" src="~/assets/images/border-text-normal.png" alt="">
+                    </div>
+                </div>
+                <div class="col-8">
+                    <img class="border-paragraph" src="~/assets/images/border-paragraph.png" alt="">
+                    
+
+                </div>
+
+            </div>
+        </div>*@
+        
+    </section>
+
+    <!-- Section - Criteria -->
+    <section class="ln-section d-xl-flex flex-column align-items-center criteria-section" data-anchor="criteria" data-tooltip="Criteria">
+        <div class="overlay overlay-advanced">
+            <div class="overlay-inner bg-image-holder bg-cover">
+                <img src="~/assets/images/background-criteria.png" alt="background">
+            </div>
+        </div>
+        <p class="title-criteria">Who are we looking for?</p>
+        <div class="row justify-content-center list-criteria">
+            <img class="criteria-pic" onclick="criteriaInfo(0)" src="~/assets/images/normal-0.png" alt="">
+            <img class="criteria-pic-open hidden animated" data-animation="fadeIn" src="~/assets/images/focus-0.png" alt="">
+            <img class="criteria-pic" onclick="criteriaInfo(1)" src="~/assets/images/normal-1.png" alt="">
+            <img class="criteria-pic-open hidden animated" data-animation="fadeIn" src="~/assets/images/focus-1.png" alt="">
+            <img class="criteria-pic" onclick="criteriaInfo(2)" src="~/assets/images/normal-2.png" alt="">
+            <img class="criteria-pic-open hidden animated" data-animation="fadeIn" src="~/assets/images/focus-2.png" alt="">
+        </div>
+        @*<div class="row mt-3">
+            <div class="circle-container">
+                <div class="circle-criteria circle-1 d-flex align-items-center text-center">
+                    <p class="criteria-text">Project Management</p>
+                </div>
+                <div class="circle-criteria circle-2 d-flex align-items-center text-center">
+                    <p class="criteria-text">Stakeholder Communication</p>
+                </div>
+                <div class="circle-criteria circle-3 d-flex align-items-center text-center">
+                    <p class="criteria-text">Communication of Technical Concepts</p>
+                </div>
+                <div class="circle-criteria circle-4 d-flex align-items-center text-center">
+                    <p class="criteria-text">Information Numeracy Analysis</p>
+                </div>
+                <div class="circle-criteria circle-5 d-flex align-items-center text-center">
+                    <p class="criteria-text">Scientific Knowledge</p>
                 </div>
             </div>
-            <div class="message d-flex flex-column align-items-center ml-3 mr-3" onclick="toggleVisibility(1)">
-                <img class="person-message person-1" src="~/assets/images/girl-home.png" alt="">
-                <div class="title-group dropup text-center">
-                    <p class="title-message">Online Appication 2</p>
-                    <img class="title-border" src="~/assets/images/text-border-orange.png" alt="">
+            <div class="senses-container d-flex flex-column">
+                <div class="sense-pic senses-1">
+                    <div class="circle-criteria pair d-flex align-items-center text-center">
+                        <p class="criteria-text">Intelligence & Problem solving ability</p>
+                    </div>
+                </div>
+                <div class="sense-pic senses-2">
+                    <div class="circle-criteria pair d-flex align-items-center text-center">
+                        <p class="criteria-text">Leadership ability & Desire for excellence</p>
+                    </div>
+                </div>
+                <div class="sense-pic senses-3">
+                    <div class="circle-criteria pair d-flex align-items-center text-center">
+                        <p class="criteria-text">Integrity & Transparency</p>
+                    </div>
+                </div>
+                <div class="sense-pic senses-4">
+                    <div class="circle-criteria pair d-flex align-items-center text-center">
+                        <p class="criteria-text">Responsibility & Results-oriented</p>
+                    </div>
+                </div>
+                <div class="sense-pic senses-5">
+                    <div class="circle-criteria pair d-flex align-items-center text-center">
+                        <p class="criteria-text">Good at expertise & Always learning</p>
+                    </div>
+                </div>
+                <div class="sense-pic senses-6">
+                    <div class="circle-criteria pair d-flex align-items-center text-center">
+                        <p class="criteria-text">Together & For consumers</p>
+                    </div>
                 </div>
             </div>
-            <div class="message d-flex flex-column align-items-center ml-3 mr-3" onclick="toggleVisibility(2)">
-                <img class="person-message person-1" src="~/assets/images/girl-home.png" alt="">
-                <div class="title-group dropup text-center">
-                    <p class="title-message">Online Appication 3</p>
-                    <img class="title-border" src="~/assets/images/text-border-orange.png" alt="">
+        </div>
+        <div class="human-talk">
+            <img class="human-talk-pic" src="~/assets/images/man-touch.png" alt="background">
+        </div>
+        <img class="left-criteria" src="~/assets/images/five-func.png" alt="background">
+        <img class="right-criteria" src="~/assets/images/six-pairs.png" alt="background">*@
+    </section>
+
+    <!-- Section - Process -->
+    <section class="ln-section d-xl-flex flex-column align-items-center process-section" data-anchor="process" data-tooltip="Selection Process" data-ui="dark" data-navbar="navbar-light">
+        <div class="overlay overlay-advanced">
+            <div class="overlay-inner bg-image-holder bg-cover">
+                <img class="process-bg" src="~/assets/images/background-process.png" alt="background">
+            </div>
+            <img class="six-scenses-process block-event" src="~/assets/images/six-scenses-process.png" alt="">
+        </div>
+        
+        <p class="title-process">When does the selection process happen?</p>
+        <img class="process-talents block-event" src="~/assets/images/young-talents.png" alt="">
+        <img class="process-info process-1 hidden" src="~/assets/images/process-1.png" alt="">
+
+        <img class="process-info process-2 hidden" src="~/assets/images/process-2.png" alt="">
+
+        <img class="process-info process-3 hidden" src="~/assets/images/process-3.png" alt="">
+        
+        <img class="process-info process-4 hidden" src="~/assets/images/process-4.png" alt="">
+
+        <img class="process-info process-5 hidden" src="~/assets/images/process-5.png" alt="">
+
+        <img class="process-info process-6 hidden" src="~/assets/images/process-6.png" alt="">
+        <img class="process see-process" onclick="process(0)" src="~/assets/images/see-process.png" alt="">
+        <img class="process trust-process" onclick="process(1)" src="~/assets/images/trust-process.png" alt="">
+        <img class="process taste-process" onclick="process(2)" src="~/assets/images/taste-process.png" alt="">
+        <img class="process smell-process" onclick="process(3)" src="~/assets/images/smell-process.png" alt="">
+        <img class="process hear-process" onclick="process(4)" src="~/assets/images/hear-process.png" alt="">
+        <img class="process touch-process" onclick="process(5)" src="~/assets/images/touch-process.png" alt="">
+       
+
+    </section>
+    <!-- Section - Journey -->
+    <section class="ln-section d-flex justify-content-center journey-section" data-anchor="journey" data-tooltip="RnD Journey">
+        <div class="overlay overlay-advanced">
+            <div class="overlay-inner bg-image-holder bg-cover">
+                <img src="~/assets/images/backgroun-journey.png" alt="background">
+            </div>
+        </div>
+        
+            <p class="title-journey">R&D Talents Journey</p>
+            <img src="~/assets/images/second-year.png" id="journey-3" onclick="clickJourney(3)" class="round-journey round-1" alt="">
+            <img src="~/assets/images/first-year.png" id="journey-2" onclick="clickJourney(2)" class="round-journey round-2" alt="">
+            <img src="~/assets/images/second-year-click.png" id="journey-3-click" class="round-journey round-1 hidden" alt="">
+            <img src="~/assets/images/first-year-click.png" id="journey-2-click" class="round-journey round-2 hidden" alt="">
+            <img src="~/assets/images/network.png" class="round-journey earth-3" alt="">
+            <img src="~/assets/images/network.png" class="round-journey earth-2" alt="">
+    </section>
+
+    <!-- Section - Our message -->
+    <section class="ln-section d-xl-flex flex-column justify-content-center testimonial-section" data-anchor="message" data-tooltip="Messages" data-ui="dark" data-navbar="navbar-light">
+        
+        <div class="overlay overlay-advanced">
+            <div class="overlay-inner bg-image-holder bg-cover">
+                <img class="testimonial-background" src="~/assets/images/bottle-background.png" alt="background">
+            </div>
+        </div>
+        
+        <p class="title-2 text-center" data-animation="fadeInUp" data-animation-delay="300">Message from our talents</p>
+        <div class="row row-cols-7 justify-content-center message-list" id="message-list"  data-animation="fadeInUp" data-animation-delay="300">
+            <div class="message d-flex flex-column align-items-center ml-6 mr-6 focus" onclick="toggleVisibility(0)">
+                <img class="person-message person-1" src="~/assets/images/chiThuong.jpg" alt="">
+                <div class="title-group dropup text-center testimonial-focus">
+                    <p class="title-message">Chị Nguyễn Ngọc Thương</p>
+                    <img class="title-border" src="~/assets/images/testimonial-focus.png" alt="">
                 </div>
             </div>
-            <div class="message d-flex flex-column align-items-center ml-3 mr-3" onclick="toggleVisibility(3)">
-                <img class="person-message person-1" src="~/assets/images/girl-home.png" alt="">
+            <div class="message d-flex flex-column align-items-center ml-6 mr-6" onclick="toggleVisibility(1)">
+                <img class="person-message person-1" src="~/assets/images/anhKiet.jpg" alt="">
                 <div class="title-group dropup text-center">
-                    <p class="title-message">Online Appication 4</p>
-                    <img class="title-border" src="~/assets/images/text-border-orange.png" alt="">
+                    <p class="title-message">Anh Huỳnh Tuấn Kiệt</p>
+                    <img class="title-border" src="~/assets/images/text-border-blue.png" alt="">
                 </div>
             </div>
-            <div class="message d-flex flex-column align-items-center ml-3 mr-3" onclick="toggleVisibility(4)">
-                <img class="person-message person-1" src="~/assets/images/girl-home.png" alt="">
+            <div class="message d-flex flex-column align-items-center ml-6 mr-6" onclick="toggleVisibility(2)">
+                <img class="person-message person-1" src="~/assets/images/chiDan.jpg" alt="">
                 <div class="title-group dropup text-center">
-                    <p class="title-message">Online Appication 5</p>
-                    <img class="title-border" src="~/assets/images/text-border-orange.png" alt="">
+                    <p class="title-message">Chị Huỳnh Nguyễn Hiếu Dân</p>
+                    <img class="title-border" src="~/assets/images/text-border-blue.png" alt="">
                 </div>
             </div>
+            <div class="message d-flex flex-column align-items-center ml-6 mr-6" onclick="toggleVisibility(3)">
+                <img class="person-message person-1" src="~/assets/images/chiVi.jpg" alt="">
+                <div class="title-group dropup text-center">
+                    <p class="title-message">Chị Nguyễn Ngọc Thanh Vi</p>
+                    <img class="title-border" src="~/assets/images/text-border-blue.png" alt="">
+                </div>
+            </div>
+         
+            <div class="message d-flex flex-column align-items-center ml-6 mr-6" onclick="toggleVisibility(4)">
+                <img class="person-message person-1" src="~/assets/images/anhDo.jpg" alt="">
+                <div class="title-group dropup text-center">
+                    <p class="title-message">Anh Nguyễn Dũng Đô</p>
+                    <img class="title-border" src="~/assets/images/text-border-blue.png" alt="">
+                </div>
+            </div>
+            
         
         </div>
-        <div class="row justify-content-center message-focus align-items-end" id="message-focus">
-            <div class="col-4 message-focus-border dropup text-center">
-                <p class="title-message">Online Appication 1</p>
-                <img class="title-border" src="~/assets/images/element-focus.png" alt="">
-            </div>
-            <div class="col-7 message-focus-text-border dropup text-center">
-                <p class="title-message">Online Appication 1</p>
-                <img class="title-border" src="~/assets/images/message.png" alt="">
-            </div>
+        <div class="slick-testimonial">
+            <div> <img class="border-testimonial" src="~/assets/images/testimonial-1.png" alt=""></div>
+            <div><img class="border-testimonial hidden" src="~/assets/images/testimonial-2.png" alt=""></div>
+            <div><img class="border-testimonial hidden" src="~/assets/images/testimonial-3.png" alt=""></div>
+            <div><img class="border-testimonial hidden" src="~/assets/images/testimonial-4.png" alt=""></div>
+            <div><img class="border-testimonial hidden" src="~/assets/images/testimonial-5.png" alt=""></div>
         </div>
     </section>
 
-    <!-- Section - What we do -->
-    <section class="ln-section d-xl-flex" data-anchor="what-we-do" data-tooltip="What we do">
+    <!-- Section - Product -->
+    <section class="ln-section d-xl-flex product-section" data-anchor="product" data-tooltip="Product">
         <div class="overlay overlay-advanced">
             <div class="overlay-inner bg-image-holder bg-cover">
-                <img src="~/assets/images/recruitment.jpg" alt="background">
-            </div>
-            <div class="overlay-inner opacity-95" data-gradient-bg="[['#195cb5','#ffb56e'],['#21D4FD','#195cb5'],['#ffb56e','#013b7a']]"></div>
-        </div>
-        <div class="container align-self-center text-white">
-            <div class="row mb-8 text-center">
-                <div class="col-12 col-lg-9 mx-lg-auto">
-                    <h2 class="h1 mb-4 animated" data-animation="fadeInUp"><b>Key accountabilities</b></h2>
-                    <p class="mb-0 animated" data-animation="fadeInUp" data-animation-delay="400">When joining Masan R&D Talents Program, candidates will undergo training and be responsible for the following job activities:</p>
-                </div>
-            </div>
-            <div class="row">
-
-                <div class="col-10 col-md-6 mb-5">
-                    <div class="feature-block text-center">
-                        <div class="feature-icon style-2 text-primary mx-auto">
-                            <div>
-                                <i class="ti-timer"></i>
-                            </div>
-                        </div>
-                        <h3 class="h4 heading-uppercase mb-2"><b>50%</b></h3>
-                        <p>
-                            Plan and implement experiments according to the guidance of direct supervisors regarding research and product development at the Lab/Pilot/Line scale.
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-10 col-md-6 mb-5">
-                    <div class="feature-block text-center">
-                        <div class="feature-icon style-2 text-primary mx-auto">
-                            <div>
-                                <i class="ti-brush-alt"></i>
-                            </div>
-                        </div>
-                        <h3 class="h4 heading-uppercase mb-2"><b>20%</b></h3>
-                        <p>
-                            Execute the technology transfer of new products to the factory and complete the transfer documentation (HDSX, BOM, standards, test records, etc.).
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-10 col-md-6 mb-5 mb-md-0">
-                    <div class="feature-block text-center">
-                        <div class="feature-icon style-2 text-primary mx-auto">
-                            <div>
-                                <i class="ti-book"></i>
-                            </div>
-                        </div>
-                        <h3 class="h4 heading-uppercase mb-2"><b>20%</b></h3>
-                        <p>Coordinate with functional teams (RSS, PKG, Micro, Processing, Consumer Technical Insight, Technical Data Management, etc.) to complete the project as required.</p>
-                    </div>
-                </div>
-
-                <div class="col-10 col-md-6">
-                    <div class="feature-block text-center">
-                        <div class="feature-icon style-2 text-primary mx-auto">
-                            <div>
-                                <i class="ti-layers"></i>
-                            </div>
-                        </div>
-                        <h3 class="h4 heading-uppercase mb-2"><b>10%</b></h3>
-                        <p>Propose solutions for dealing with issues related to existing raw material sources.</p>
-                    </div>
-                </div>
-
+                <img class="product-bg" src="~/assets/images/product.png" alt="background">
             </div>
         </div>
-    </section>
 
-    <!-- Section - Our solutions -->
-    <section class="ln-section d-xl-flex" data-anchor="our-solutions" data-tooltip="Our solutions">
-        <div class="overlay overlay-advanced">
-            <div class="overlay-inner bg-image-holder bg-cover">
-                <img src="~/assets/images/product.jpg" alt="background">
-            </div>
-            <div class="overlay-inner opacity-95" data-gradient-bg="[['#195cb5','#ffb56e'],['#21D4FD','#195cb5'],['#ffb56e','#013b7a']]"></div>
-        </div>
-        <div class="container align-self-center text-center text-white">
-            <div class="row">
-                <div class="col-12 col-lg-9 mx-lg-auto">
-                    <h2 class="h1 mb-4 animated" data-animation="fadeInUp"><b>Criteria</b></h2>
-                    </div>
-            </div>
-            <img class="criteria-pic" src="~/assets/images/Criteria.png" alt="">
-        </div>
-    </section>
-
-
-    <!-- Section - Our work -->
-    <section class="ln-section d-xl-flex" data-anchor="our-work" data-tooltip="Our work">
-        <div class="container align-self-center text-white text-center">
-            <div class="row mb-8">
-                <div class="col-12 col-lg-9 mx-lg-auto">
-                    <h2 class="mb-4 animated" data-animation="fadeInUp"><b>Program Process</b></h2>
-                   
-                </div>
-            </div>
-            <div class="slider dots-light text-left animated" data-animation="fadeInUp" data-animation-delay="300" data-slick='{"dots": true}'>
-
-                <div>
-                    <div class="portfolio-item mb-8">
-                        <div class="row">
-                            <div class="col-12 col-lg-7 mb-4 mb-lg-0">
-                                <div class="item-media">
-                                    <a href="assets/images/portfolio/project-6.jpg" class="mfp-image">
-                                        <div class="media-container">
-                                            <div class="bg-image-holder bg-cover">
-                                                <img src="assets/images/portfolio/project-6-min.jpg" alt="">
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-4">
-                                <div class="pt-lg-8">
-                                    <div class="divider divider-alt bg-white mt-0 mb-8 d-none d-lg-block"></div>
-                                    <h4 class="h3"><b>Form Application</b></h4>
-                                    <p class="text-italic">Candidates register for the program and submit their CVs. Suitable candidates will receive an email inviting them to participate in the program's test round.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="portfolio-item mb-8">
-                        <div class="row">
-                            <div class="col-12 col-lg-7 mb-4 mb-lg-0">
-                                <div class="item-media">
-                                    <a href="assets/images/portfolio/project-1.jpg" class="mfp-image">
-                                        <div class="media-container">
-                                            <div class="bg-image-holder bg-cover">
-                                                <img src="assets/images/portfolio/project-1-min.jpg" alt="">
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-4">
-                                <div class="pt-lg-8">
-                                    <div class="divider divider-alt bg-white mt-0 mb-8 d-none d-lg-block"></div>
-                                    <h4 class="h3"><b>Online Test</b></h4>
-                                    <p class="text-italic">
-                                        Candidates complete the personal screening test and answer questions, assessing their preferences in the following four areas:
-                                    </p>
-                                    <ul class="animated" data-animation="fadeInUp" data-animation-delay="150">
-                                        <li> Curiosity and eagerness to learn new things.</li>
-                                        <li>  Non-verbal thinking / Logic - Abstract / Logical Reasoning.</li>
-                                        <li>  Critical thinking skills.</li>
-                                        <li>  Problem-solving ability in work-related simulated situations - Simulation SJTs.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="portfolio-item mb-8">
-                        <div class="row">
-                            <div class="col-12 col-lg-7 mb-4 mb-lg-0">
-                                <div class="item-media">
-                                    <a href="assets/images/portfolio/project-2.jpg" class="mfp-image">
-                                        <div class="media-container">
-                                            <div class="bg-image-holder bg-cover">
-                                                <img src="assets/images/portfolio/project-2-min.jpg" alt="">
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-4">
-                                <div class="pt-lg-8">
-                                    <div class="divider divider-alt bg-white mt-0 mb-8 d-none d-lg-block"></div>
-                                    <h4 class="h3"><b>Innovation Day</b></h4>
-                                    <p class="text-italic"><b>TOP 80</b><br>The top 80 candidates will be divided into 16 teams selected from Round 2 to participate in the Innovation Day (Group challenge). Here, the teams will be assigned topics to work on one practical scientific research idea. The teams will be guided by a panel of judges and advisors, including Associate R&D Directors and R&D Sr. Managers at Masan. The competition will span 3 weeks for the teams to conduct product research at the R&D office and Lab. Teams that are not present in Ho Chi Minh City will participate online.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="portfolio-item mb-8">
-                        <div class="row">
-                            <div class="col-12 col-lg-7 mb-4 mb-lg-0">
-                                <div class="item-media">
-                                    <a href="assets/images/portfolio/project-3.jpg" class="mfp-image">
-                                        <div class="media-container">
-                                            <div class="bg-image-holder bg-cover">
-                                                <img src="assets/images/portfolio/project-3-min.jpg" alt="">
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-4">
-                                <div class="pt-lg-8">
-                                    <div class="divider divider-alt bg-white mt-0 mb-8 d-none d-lg-block"></div>
-                                    <h4 class="h3">
-                                        <b>
-                                            Final Battle - Part 1:
-                                            Present the product research project:
-                                        </b>
-                                    </h4>
-                                    <p class="text-italic">
-                                        The 16 teams will go through a presentation session of their researched ideas, observations, and evaluations of the research samples with the judging panel and advisors from Masan R&D.
-                                        <br><br> The Innovation Day prizes structure is as shown in the picture.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="portfolio-item">
-                        <div class="row">
-                            <div class="col-12 col-lg-7 mb-4 mb-lg-0">
-                                <div class="item-media">
-                                    <a href="assets/images/portfolio/project-4.jpg" class="mfp-image">
-                                        <div class="media-container">
-                                            <div class="bg-image-holder bg-cover">
-                                                <img src="assets/images/portfolio/project-4-min.jpg" alt="">
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-4">
-                                <div class="pt-lg-8">
-                                    <div class="divider divider-alt bg-white mt-0 mb-8 d-none d-lg-block"></div>
-                                    <h4 class="h3">
-                                        <b>
-                                            Final Battle - Part 2:
-                                            Personal Interview
-                                        </b>
-                                    </h4>
-                                    <p class="text-italic"><b>TOP 30</b><br>The top 30 outstanding individual candidates selected from the Innovation Day will participate in the Final Battle, where they will answer personal interview questions from the judging panel, including the Masan Consumer Holdings CEO and Associate R&D Directors, R&D Sr. Managers/Managers. The questions will revolve around Masan R&D qualities to determine the overall top 15 candidates.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <div class="portfolio-item">
-                        <div class="row">
-                            <div class="col-12 col-lg-7 mb-4 mb-lg-0">
-                                <div class="item-media">
-                                    <a href="assets/images/portfolio/project-4.jpg" class="mfp-image">
-                                        <div class="media-container">
-                                            <div class="bg-image-holder bg-cover">
-                                                <img src="assets/images/portfolio/project-4-min.jpg" alt="">
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="col-12 col-lg-4">
-                                <div class="pt-lg-8">
-                                    <div class="divider divider-alt bg-white mt-0 mb-8 d-none d-lg-block"></div>
-                                    <h4 class="h3">
-                                        <b>
-                                            Final Interview
-                                        </b>
-                                    </h4>
-                                    <p class="text-italic"><b>TOP 15</b><br>The top 15 candidates selected in the Final Battle will undergo interviews with the R&D Department and HRBP to determine the department that aligns with their career goals. 
-                                        <br><br> Candidates who have not yet graduated may retain their recruitment rights until they meet the requirements for full-time employment, except for the Problem Solving Test, which has a 12-month expiration.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </section>
 
     <!-- Section - Contact -->
-    <section class="ln-section d-xl-flex" data-anchor="contact" data-tooltip="Contact">
+    <section class="ln-section d-xl-flex contact-section" data-anchor="contact" data-tooltip="Contact" data-navbar="navbar-light" data-ui="dark">
         <div class="overlay overlay-advanced">
             <div class="overlay-inner bg-image-holder bg-cover">
-                <img src="~/assets/images/contact.jpg" alt="background">
-            </div>
-            <div class="overlay-inner opacity-90" data-gradient-bg="[['#195cb5','#ffb56e'],['#21D4FD','#195cb5'],['#ffb56e','#013b7a']]"></div>
-        </div>
-        <div class="banner-container">
-        <img class="banner-end" src="~/assets/images/banner-end.jpg" alt="">
-        </div>
-        <div class="container align-self-center text-white end-section">
-            
-            <div class="row mb-7">
-                <div class="col-12 col-xl-6">
-                    <h2 class="mb-4 animated" data-animation="fadeInUp">Contact Us</h2>
-                    <p class="animated" data-animation="fadeInUp" data-animation-delay="150">Want to say hello? Want to know more about us? Give us a call or drop us an email and we will get back to you as soon as we can.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-12 col-lg-5 mb-8 mb-lg-0">
-                    <div class="row">
-
-                        <div class="col-12 col-md-4 col-lg-6 mb-8 mb-md-0 mb-lg-5 animated" data-animation="fadeInUp" data-animation-delay="150">
-                            <div class="icon-5x mb-4">
-                                <i class="ti-mobile"></i>
-                            </div>
-                            <p class="mb-0">(0091) 1111 1234567<br /> (084) 2222 1234567</p>
-                        </div>
-
-                        <div class="col-12 col-md-4 col-lg-6 mb-8 mb-md-0 mb-lg-5 animated" data-animation="fadeInUp" data-animation-delay="150">
-                            <div class="icon-5x mb-4">
-                                <i class="ti-location-pin"></i>
-                            </div>
-                            <p class="mb-0">69 Halsey St, New York, Ny 10002,<br /> United States</p>
-                        </div>
-
-                        <div class="col-12 col-md-4 col-lg-6 animated" data-animation="fadeInUp" data-animation-delay="150">
-                            <div class="icon-5x mb-4">
-                                <i class="ti-email"></i>
-                            </div>
-                            <p class="mb-0">
-                                <a href="mailto:support@example.com" class="text-white">support@example.com</a><br />
-                                <a href="mailto:hello@example.com" class="text-white">hello@example.com</a>
-                            </p>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="col-12 col-lg-6 offset-lg-1 animated" data-animation="fadeInUp" data-animation-delay="150">
-                    <div class="contact-form">
-                        <form class="mb-0" id="cf" name="cf" action="include/sendemail.php" method="post" autocomplete="off">
-                            <div class="form-row">
-
-                                <div class="col-12 col-md-6">
-                                    <div class="form-group">
-                                        <input type="text" id="cf-name" name="cf-name" placeholder="Enter your name" class="form-control required">
-                                    </div>
-                                </div>
-
-                                <div class="col-12 col-md-6">
-                                    <div class="form-group">
-                                        <input type="email" id="cf-email" name="cf-email" placeholder="Enter your email address" class="form-control required">
-                                    </div>
-                                </div>
-
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <input type="text" id="cf-subject" name="cf-subject" placeholder="Subject (Optional)" class="form-control">
-                                    </div>
-                                </div>
-
-                                <div class="col-12 mb-4">
-                                    <div class="form-group">
-                                        <textarea name="cf-message" id="cf-message" placeholder="Here goes your message" class="form-control required" rows="7"></textarea>
-                                    </div>
-                                </div>
-
-                                <div class="col-12 d-none">
-                                    <input type="text" id="cf-botcheck" name="cf-botcheck" value="">
-                                </div>
-
-                                <input type="hidden" name="prefix" value="cf-">
-
-                                <div class="col-12">
-                                    <button class="btn btn-soft-white" type="submit" id="cf-submit" name="cf-submit">Send Message</button>
-                                </div>
-
-                            </div>
-                        </form>
-                        <div class="contact-form-result"></div>
-                    </div>
-                </div>
+                <img class="contact-bg" src="~/assets/images/background-contact.png" alt="background">
             </div>
         </div>
+        
+        <p class="title-contact">Contact Us</p>
+        <img class="phone-contact" src="~/assets/images/phone-contact.png" alt="">
+        <a href="https://www.facebook.com/masanconsumercareers" target="_blank">
+                <img class="fb-contact" src="~/assets/images/facebook-contact.png" alt="">
+            </a>
+        <a href="https://www.linkedin.com/company/masan-consumer-holdings/" target="_blank">
+            <img class="linkedin-contact" src="~/assets/images/linkedin-contact.png" alt="">
+        </a>
+
+
+        <img class="phone-contact-circle" src="~/assets/images/Asset24.png" alt="">
+        <img class="fb-contact-circle" src="~/assets/images/Asset24.png" alt="">
+        <img class="linkedin-contact-circle" src="~/assets/images/Asset24.png" alt="">
+     
+        
     </section>
-            </div>
-    <div class="website-slider-item" id="application-form">
-
-        <section class="min-vh-100 d-flex">
-            <div class="container align-self-center text-white text-center">
-                <div class="row">
-                    <div class="col-12 col-lg-9 mx-lg-auto">
-                        <h2 class="h1 mb-4 animated" data-animation="fadeInUp">Contact Us</h2>
-                        <div class="divider bg-white mx-auto animated" data-animation="fadeInUp" data-animation-delay="200"></div>
-                        <p class="animated mb-8" data-animation="fadeInUp" data-animation-delay="400">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
-                        <div class="contact-form text-left animated" data-animation="fadeInUp" data-animation-delay="600">
-                            <form class="mb-0" id="cf" name="cf" action="include/sendemail.php" method="post" autocomplete="off">
-                                <div class="form-row">
-
-                                    <div class="col-12 col-md-6">
-                                        <div class="form-group">
-                                            <input type="text" id="cf-name" name="cf-name" placeholder="Enter your name" class="form-control form-control-soft-light required">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12 col-md-6">
-                                        <div class="form-group">
-                                            <input type="email" id="cf-email" name="cf-email" placeholder="Enter your email address" class="form-control form-control-soft-light required">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12">
-                                        <div class="form-group">
-                                            <input type="text" id="cf-subject" name="cf-subject" placeholder="Subject (Optional)" class="form-control form-control-soft-light">
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12 mb-4">
-                                        <div class="form-group">
-                                            <textarea name="cf-message" id="cf-message" placeholder="Here goes your message" class="form-control form-control-soft-light required" rows="7"></textarea>
-                                        </div>
-                                    </div>
-
-                                    <div class="col-12 d-none">
-                                        <input type="text" id="cf-botcheck" name="cf-botcheck" value="">
-                                    </div>
-
-                                    <input type="hidden" name="prefix" value="cf-">
-
-                                    <div class="col-12 text-center">
-                                        <button class="btn btn-soft-white" type="submit" id="cf-submit" name="cf-submit">Send Message</button>
-                                    </div>
-
-                                </div>
-                            </form>
-                            <div class="contact-form-result text-center"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-            
+    
 </div>
+    
 <script>
-    const btn_2 = document.getElementById('apply-btn-2');
+    var isMobile = false;
+    var windowWidth = window.innerWidth;
+    if (windowWidth < 900) {
+        isMobile = true;
+        const aboutgroup = document.querySelectorAll('.border-paragraph');
+        const criteriaGroup = document.querySelectorAll('.criteria-pic-open');
+        const borderTestimonialList = document.querySelectorAll('.border-testimonial');
+        const slickTestimonial = document.querySelector('.slick-testimonial');
+        aboutgroup[1].classList.remove('hidden');
+        aboutgroup[2].classList.remove('hidden');
+        aboutgroup[0].setAttribute('src', "/assets/images/mobile/border-paragraph.png");
+        aboutgroup[1].setAttribute('src', "/assets/images/mobile/border-paragraph-2.png");
+        aboutgroup[2].setAttribute('src', "/assets/images/mobile/border-paragraph-3.png");
+        criteriaGroup[0].setAttribute('src', "/assets/images/mobile/focus-0.png");
+        criteriaGroup[1].setAttribute('src', "/assets/images/mobile/focus-1.png");
+        criteriaGroup[2].setAttribute('src', "/assets/images/mobile/focus-2.png");
+        borderTestimonialList[0].setAttribute('src', "/assets/images/mobile/testimonial-1.png");
+        borderTestimonialList[1].setAttribute('src', "/assets/images/mobile/testimonial-2.png");
+        borderTestimonialList[2].setAttribute('src', "/assets/images/mobile/testimonial-3.png");
+        borderTestimonialList[3].setAttribute('src', "/assets/images/mobile/testimonial-4.png");
+        borderTestimonialList[4].setAttribute('src', "/assets/images/mobile/testimonial-5.png");
+        slickTestimonial.classList.add('slider');
+    }
 
+    //const divA = document.querySelector('.training-register');
+    //const divB = document.querySelector('.fa-hand-point-down');
+
+    //divA.addEventListener('mouseover', () => {
+    //    divB.style.opacity = 0;
+    //});
+
+    //divA.addEventListener('mouseout', () => {
+    //    divB.style.opacity = 1;
+    //});
+
+
+    const btn_2 = document.getElementById('apply-btn-2');
     var btnHidden = false;
     setInterval(function () {
 
@@ -537,50 +378,149 @@
             btn_2.style.display = "block";
             btnHidden = false;
         }
-    }, 800);
+    }, 500);
 
     var messageList = document.querySelectorAll('.message');
     var messageDiv = document.getElementById('message-list');
     var messageFocus = document.getElementById('message-focus');
-    function toggleVisibility(index) {
-        messageDiv.style.transform = 'scale(1.0)';
-        messageList[index].classList.toggle('hidden');
-        messageList[index].style.transform = "translateX(0) translateY(0)";
-        messageFocus.style.display = "none";
-        var transX = -200 - 300 * index + "px";
-        // Tính flex-grow cho các div hiển thị
-        var flexGrowValue = 1 / 4;
-        var count = 0;
-        messageList.forEach(function(item) {
-            
-            if (!item.classList.contains('hidden')) {
-                
-                item.style.flexGrow = flexGrowValue;
-                item.style.zIndex = '10';
 
-            } else if (count != index)
+    function toggleVisibility(index) 
+    {
+        var i = 0;
+        var stt = index + 1;
+        var source = "/assets/images/testimonial-" + stt + ".png";
+        const borderTestimonialList = document.querySelectorAll('.border-testimonial');
+        const shareGroup = document.querySelectorAll('.title-group');
+        const shareBorder = document.querySelectorAll('.title-border');
+        shareGroup.forEach(share => {
+            if (i === index)
             {
-                messageList[count].classList.remove('hidden')
-                item.style.transform = "translateX(0) translateY(0)";
-                item.style.flexGrow = flexGrowValue;
-                item.style.zIndex = '10';
+                share.classList.add('testimonial-focus');
+                shareBorder[index].setAttribute('src', "/assets/images/testimonial-focus.png");
+                borderTestimonialList[i].classList.remove("hidden");
+                messageList[i].classList.add('focus');
+            } else {
+                share.classList.remove('testimonial-focus');
+                shareBorder[i].setAttribute('src', "/assets/images/text-border-blue.png");
+                borderTestimonialList[i].classList.add("hidden");
+                messageList[i].classList.remove('focus');
+            }
+            i +=1;
+        });
+    }
+    
+    function aboutSection(index) {
+        var i = 1;
+        var className = ".border-text-" + index;
+        
+        const borderGroup = document.querySelectorAll('.border-text');
+        const aboutGroup = document.querySelectorAll('.about-group');
+        const infoGroup = document.querySelectorAll('.border-paragraph');
+        const paragraph = document.getElementById('title-about');
+        const listFunc = document.getElementById('list-func');
+        borderGroup.forEach(border => {
+            if (i === index) {
+                border.setAttribute('src', "/assets/images/border-text-focus.png");
+                
+                infoGroup[i-1].classList.remove('hidden');
             }
             else {
-                item.style.flexGrow = 0;
-                item.style.transform = "translateX(" + transX + ") translateY(200%)";
-                item.style.zIndex = '1';
-                messageDiv.style.transform = 'scale(0.7)';
-                messageFocus.style.display = "flex";
-
+                border.setAttribute('src', "/assets/images/border-text-normal.png");
+               
+                infoGroup[i-1].classList.add('hidden');
             }
-            count += 1;
             
+            i += 1;
         });
+    }
+    
+    function process(index) {
+        if (!document.body.classList.contains('layout-mobile')) {
+            var i = 0;
+            const processList = document.querySelectorAll('.process');
+            const processImage = document.querySelectorAll('.process-info');
+            const talentImage = document.querySelector('.process-talents');
+        
+            var stt = index + 1;
+            var source = "/assets/images/process-" + stt + ".png";
+            processList.forEach(process => {
+                if (process.style.opacity === "1" && i === index) {
+                    process.style.opacity = "0";
+                    processImage[i].classList.add('hidden');
+                    talentImage.style.display = "block";
+                }
+                else if (i === index) {
+                    process.style.opacity = "1";
+                    processImage[i].classList.remove('hidden');
+                    talentImage.style.display = "none";
+                }
+                else {
+                    process.style.opacity = "0";
+                    processImage[i].classList.add('hidden');
+                }
+            
+            
+                i += 1;
+            });
+        }
         
     }
     
-    
-    
+    function criteriaInfo(index) {
+        var boxNum = 0;
+        var open = false;
+        const listCriteria = document.querySelectorAll('.criteria-pic');
+        const listCriteriaOpen = document.querySelectorAll('.criteria-pic-open');
+      
+        listCriteriaOpen[index].classList.remove('hidden');
+        
+        listCriteria[index].classList.add('hidden');
+        listCriteriaOpen[index].addEventListener("click", function () {
+            listCriteriaOpen[index].classList.remove('open');
+            listCriteriaOpen[index].classList.add('hidden');
+            listCriteria[index].classList.remove('hidden');
+            listCriteria.forEach(box => {
+                box.classList.remove('not-open');
+            });
+        });
+        listCriteria.forEach(box => {
+           if (index != boxNum) {
+                box.classList.remove('hidden');
+                listCriteriaOpen[boxNum].classList.add('hidden');
+                listCriteriaOpen[boxNum].classList.remove('open');
+                box.classList.add('not-open');
+            }
+           
+            boxNum += 1;
+        });
+        listCriteriaOpen[index].classList.add('open');
+    }
+    function clickJourney(index) {
+        var nameHide = "journey-" + index;
+        var earthHide = ".earth-" + index;
+        const hiddenDiv = document.getElementById(nameHide);
+        const clickDiv = document.getElementById(nameHide + "-click");
+        const earth = document.querySelector(earthHide);
+        hiddenDiv.classList.add('hidden');
+        earth.classList.add('hidden');
+        clickDiv.classList.remove('hidden');
+
+        clickDiv.addEventListener("click", function () {
+            clickDiv.classList.add('hidden');
+            hiddenDiv.classList.remove('hidden');
+            earth.classList.remove('hidden');
+        });
+    }
+    const listJourney = document.querySelectorAll('.round-journey');
+    function changeFilter(image) {
+        if (image.style.filter != 'brightness(100%)') {
+            image.style.filter = 'brightness(100%)';
+        } else {
+            image.style.filter = 'brightness(110%)';
+        }
+    }
+
+    const filterInterval = setInterval(changeFilter(listJourney[0]), 300);
 </script>
 @*<div class="text-center">
     <h1 class="display-4">Điền form</h1>

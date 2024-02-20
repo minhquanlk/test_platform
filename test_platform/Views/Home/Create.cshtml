@@ -1,8 +1,42 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
+﻿@model test_platform.Models.Auth.UserInfo
+
+@{
+    ViewData["Title"] = "Success";
+    Layout = "~/Views/Shared/_LayoutApply.cshtml";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Đã xong</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<!-- Fullpage content -->
+<div class="overflow-div" style="overflow-x: hidden !important; height: 100vh;">
+    <section class="d-flex flex-column">
+        <div class="overlay-video">
+            <video autoplay loop muted id="myVideoId" style="min-width: 200% !important; min-height: 100vh; overflow-x: hidden !important">
+                <source class="bg-apply" src="~/assets/images/bg-main.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <img class="title-home block-event" src="~/assets/images/main-title-nohand.png" alt="">
+        <div class="form-register">
+            <div class="d-flex flex-column flex-wrap align-content-center">
+                <div class="container-form">
+                    <div class="title">
+                        <h1 style="text-transform: uppercase;">Thank you for registering to participate in the program!</h1>
+                        <p>
+                            An email will be sent to you with your account information for the ONLINE TEST round when your CV meets Masan's requirements<br><br> If you need any support, please contact us via:
+                        </p>
+                        <ul>
+                            <li> <strong> Facebook:</strong> Masan Consumer Careers  </li>
+                            <li>
+                                <strong> Email: </strong> <a href="mailto:careers-masan@msc.masangroup.com"> careers-masan@msc.masangroup.com</a>
+                            </li>
+                        </ul>
+                        <p>Thank you for your time and interest!</p>
+                    </div>
+                    
+                </div>
+                
+
+            </div>
+        </div>
+    </section>
 </div>
+
